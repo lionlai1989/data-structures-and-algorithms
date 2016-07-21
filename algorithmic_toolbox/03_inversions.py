@@ -1,4 +1,4 @@
-# Uses python3
+#!/usr/bin/env python3
 import sys
 
 def get_number_of_inversions(a, b, left, right):
