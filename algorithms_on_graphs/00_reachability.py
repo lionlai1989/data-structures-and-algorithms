@@ -1,25 +1,21 @@
-#Uses python3
-
+#!/usr/bin/env python3
 import sys
 
-visited = None
-
-def explore(adj, v):
-    global  visited
-    visited[v] = 1
+def explore(adj, v, visited, count):
+    visited[v] = count
     for w in adj[v]:
-        if visited[w] == 0:
-            explore(adj, w)
+        if visited[w] is None:
+            explore(adj, w, visited, count)
 
 def reach(adj, x, y):
-    global  visited
-    '''
-    print('adj =', adj)
-    print('x =', x)
-    print('y =', y)
-    '''
-    explore(adj, x)
-    if visited[y] == 1:
+    visited = [None] * len(adj)
+    count = 0
+    for index, item in enumerate(visited):
+        if item is None:
+            explore(adj, index, visited, count)
+            count = count + 1
+    
+    if visited[x] == visited[y]:
         return 1
     else:
         return 0
@@ -27,6 +23,8 @@ def reach(adj, x, y):
 if __name__ == '__main__':
     input = sys.stdin.read()
     data = list(map(int, input.split()))
+    # sys.stdin.read() will read from standard input till EOF.
+    # (which is usually Ctrl+D)
     n, m = data[0:2]
     data = data[2:]
     # print(n, m)
@@ -45,5 +43,5 @@ if __name__ == '__main__':
     # 4 3  -->  3 2
     # 1 4       0 3
     # 1 4       0 3
-    visited = [0] * n
+    # I think using 0 as start index is better than using 1.
     print(reach(adj, x, y))
