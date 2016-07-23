@@ -1,40 +1,27 @@
 #!/usr/bin/env python3
 
 import numpy as np
-import cProfile
 import random
+import heapq
+
+class Worker:
+    def __init__(self, thread_id, release_time=0):
+        self.thread_id = thread_id
+        self.release_time = release_time
+
+    def __lt__(self, other):
+        if self.release_time == other.release_time:
+            return self.thread_id < other.thread_id
+        return self.release_time < other.release_time
+
+    def __gt__(self, other):
+        if self.release_time == other.release_time:
+            return self.thread_id > other.thread_id
+        return self.release_time > other.release_time
+
 
 class JobQueue:
-    def __init__(self):
-        pass
-
-    def read_data(self):
-        self.num_workers, m = map(int, input().split())
-        self.jobs = list(map(int, input().split()))
-        #self.num_workers, m = 2, 5
-        #self.jobs = [1, 2, 3, 4, 5]
-        #self.num_workers, m = 4, 20
-        #self.jobs = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-        #self.num_workers, m = 4, 13
-        #self.jobs = [1, 5, 4, 4, 2, 5, 3, 2, 1, 1, 3, 1, 2]
-        '''
-        self.num_workers, m = 1000, 100000
-        self.jobs = [] 
-        for i in range(m):
-            self.jobs.append(random.randint(0, 1000000000))
-        '''
-        #print(len(self.jobs))
-        self.assigned_workers = np.array([None] * len(self.jobs))
-        self.start_times = np.array([None] * len(self.jobs))
-        self.heap = np.array([[value, 0] for value in range(self.num_workers)])
-        assert m == len(self.jobs)
-
-    def write_response(self):
-        for i in range(len(self.jobs)):
-            #print(self.assigned_workers[i], self.start_times[i])
-            #print(' '.join(str(self.assigned_workers[i])), ' '.join(str(self.start_times[i])))
-            print(self.assigned_workers[i], self.start_times[i])
-
+    '''
     def left_child(self, i):
         return 2*i+1
 
@@ -59,17 +46,6 @@ class JobQueue:
             elif self.heap[r][1] == self.heap[min_index][1] and self.heap[r][0] < self.heap[min_index][0]:
                 min_index = r
         
-        '''
-        if l <= n-1 and self.heap[l][1] < self.heap[min_index][1]:
-            min_index = l
-        elif l <= n-1 and self.heap[l][1] == self.heap[min_index][1] and self.heap[l][0] < self.heap[min_index][0]:
-            min_index = l
-        if r <= n-1 and self.heap[r][1] < self.heap[min_index][1]:
-            min_index = r
-        elif r <= n-1 and self.heap[r][1] == self.heap[min_index][1] and self.heap[r][0] < self.heap[min_index][0]:
-            min_index = r
-        '''
-        
         if i != min_index:
             self.heap[i][0], self.heap[min_index][0] = self.heap[min_index][0], self.heap[i][0]
             self.heap[i][1], self.heap[min_index][1] = self.heap[min_index][1], self.heap[i][1]
@@ -88,30 +64,62 @@ class JobQueue:
         #print('after= ', self.heap)
         return
 
+    def read_data(self):
+        self.num_workers, m = map(int, input().split())
+        self.jobs = list(map(int, input().split()))
+        #self.num_workers, m = 2, 5
+        #self.jobs = [1, 2, 3, 4, 5]
+        #self.num_workers, m = 4, 20
+        #self.jobs = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        #self.num_workers, m = 4, 13
+        #self.jobs = [1, 5, 4, 4, 2, 5, 3, 2, 1, 1, 3, 1, 2]
+        
+        #self.num_workers, m = 1000, 100000
+        #self.jobs = [] 
+        #for i in range(m):
+        #    self.jobs.append(random.randint(0, 1000000000))
+        
+        self.assigned_workers = np.array([None] * len(self.jobs))
+        self.start_times = np.array([None] * len(self.jobs))
+        self.heap = np.array([[value, 0] for value in range(self.num_workers)])
+        assert m == len(self.jobs)
+
     def assign_jobs(self):
         for i in range(len(self.jobs)):
             self.index_find_min(i)
-            
+
+    def write_response(self):
+        for i in range(len(self.jobs)):
+            print(self.assigned_workers[i], self.start_times[i])
+    '''        
+    def read_data(self):
+        self.num_workers, m = map(int, input().split())
+        self.jobs = list(map(int, input().split()))
+        self.size = len(self.jobs)
+        assert m == self.size
+
+    def assign_jobs(self):
+        self.result = []
+        self.q = [Worker(i) for i in range(self.num_workers)]
+
+        for job in self.jobs:
+            w = heapq.heappop(self.q)
+
+            self.result.append((w.thread_id, w.release_time))
+
+            w.release_time += job
+            heapq.heappush(self.q, w)
+
+    def write_response(self):
+        for worker_id, start_time in self.result:
+            print(worker_id, start_time)
+
     def solve(self):
         self.read_data()
         self.assign_jobs()
         self.write_response()
 
-if __name__ == '__main__':
-    job_queue = JobQueue()
-    job_queue.solve()
-'''
+
 if __name__ == "__main__":
     job_queue = JobQueue()
-    cProfile.run("job_queue.solve()")
-    cProfile.run("job_queue.solve()", filename="a.out")
-    cProfile.run("job_queue.solve()", filename="a.out", sort="cumulative")
-
-    import pstats 
-    p = pstats.Stats("a.out")
-    p.strip_dirs().sort_stats(-1).print_stats()
-    p.strip_dirs().sort_stats("name").print_stats(3)
-    p.strip_dirs().sort_stats("cumulative", "name").print_stats(0.5)
-    p.print_callers(0.5, "sum_num")
-    p.print_callees("job_queue.solve")
-'''
+    job_queue.solve()
