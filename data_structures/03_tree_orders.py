@@ -1,10 +1,8 @@
-# python3
+#!/usr/bin/env python3
 
 import sys, threading
 sys.setrecursionlimit(10**6) # max depth of recursion
 threading.stack_size(2**27)  # new thread will get stack of such size
-
-
 
 class TreeOrders:
     def __init__(self):

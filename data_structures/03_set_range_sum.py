@@ -1,8 +1,14 @@
-# python3
+#!/usr/bin/env python3
 
 from sys import stdin
 import copy
+
 # Splay tree implementation
+# I implement insert, erase and search by myself, wateching splay tree 
+# visualization helps to solve this problem. 
+# https://www.cs.usfca.edu/~galles/visualization/SplayTree.html
+# Strange thing is, the logic between online visualization and lecture is not 
+# really the same, and online visulization seems more makes sense to me.
 
 # Vertex of a splay tree
 class Vertex:
@@ -103,7 +109,6 @@ def find(root, key):
     else: 
       v = v.left      
   root = splay(last)
-  update(root)
   return (next, root)
 
 def split(root, key):  
@@ -158,6 +163,15 @@ def insert(x):
   root = splay(v)
   update(root)
   return
+
+  '''
+  global root
+  (left, right) = split(root, x)
+  new_vertex = None
+  if right == None or right.key != x:
+    new_vertex = Vertex(x, x, None, None, None) #self.key, self.sum, self.left, self.right, self.parent
+  root = merge(merge(left, new_vertex), right)
+  '''
   
 def erase(x):
   global root
@@ -226,6 +240,19 @@ def erase(x):
     raise 'error'
     print('fuuuuuuuuuuuuuuuuuuuuk yooooooooooooooou')
   return
+  '''
+  global root
+  # Implement erase yourself
+  # pass
+  (left, right) = split(root, x)
+  if right == None or right.key != x:
+    root = merge(left,right)
+    return
+  right = right.right
+  if right != None:
+    right.parent = None
+  root = merge(left,right)
+  '''
 
 def search(x):
   global root
@@ -253,6 +280,14 @@ def search(x):
   root = splay(v)
   update(root)
   return tmp
+  '''
+  global root
+  # Implement find yourself
+  (result, root) = find(root, x)
+  if result != None and result.key == x:
+    return True
+  return False
+  '''
 
 def summ(fr, to):
   '''
@@ -348,7 +383,7 @@ def summ(fr, to):
   (left, middle) = split(root, fr)
   (middle, right) = split(middle, to + 1)
   ans = 0
-  # Complete the implementation of sum
+
   if middle != None:
     ans = middle.sum
   root = merge(merge(left,middle),right)
@@ -360,12 +395,9 @@ n = int(stdin.readline())
 last_sum_result = 0
 for i in range(n):
   line = stdin.readline().split()
-  #print('$$$$$$$$$$$$$$$')
   if line[0] == '+':
     x = int(line[1])
     insert((x + last_sum_result) % MODULO)
-    #print('======')
-    #print_vertex(root)#
 
   elif line[0] == '-':
     x = int(line[1])
@@ -380,13 +412,9 @@ for i in range(n):
     l = int(line[1])
     r = int(line[2])
     res = summ((l + last_sum_result) % MODULO, (r + last_sum_result) % MODULO)
-    last_sum_result = (res) % MODULO
+    print(res)
     t.append(res)
-    #print(res)
-    #print('res = ', res)
-    #print('last sum result =', last_sum_result)
-  #print('===')
-#print_vertex(root)
+    last_sum_result = (res) % MODULO
 
 for i in range(len(t)):
   print(t[i])
