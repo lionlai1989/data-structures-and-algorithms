@@ -1,6 +1,8 @@
 #Binary Search Tree
 We need binary search trees to solve RangeSearch and NearestNeighbors problems.<br>
 a's key is larger than the key of any descendant of its left child, and smaller than the key of any descendant of its right child.<br>
+Properties:<br>
+  * 1. time: O(depth), if it's a balanced tree, its runtime O(log(n))<br>
 
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
@@ -21,6 +23,16 @@ def search(key, node):
   else:  # key > node.key
     return search_recursively(key, node.right)
 ```
+```python
+def insert(key, node):
+  if node is None:
+    node = Node(key)
+  elif key < node.key:
+    insert(key, node.left);
+  else:  # key > node.key
+    insert(key, node.right);
+```
+
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
     edge [dir=none];
@@ -63,18 +75,25 @@ def rightAncestor(node):
   else:
     return rightAncestor(node.parent)
 ```
+```python
+def delete(node):
+  if node.right is None:
+    remove node, promote node.left.
+  else:
+    x <- next(node)
+    replace node by x, and promote x.right.
+```
 ##rangeSearch
 ```python
-def search(key, node):
-  if node is None or node.key == key:
-    return node
-  elif key < node.key:
-    return search_recursively(key, node.left)
-  else:  # key > node.key
-    return search_recursively(key, node.right)
+def rangeSearch(left, right, root):
+  l = []
+  node = search(left, root)
+  while node.key <= right:
+    if node.key >= left
+      l.append(node)
+    node = next(node)
+  return l
 ```
-
-
 #Hash Tables<br>
 ##Direct Addressing<br>
 Input: 0 <= n <= 999<br>
