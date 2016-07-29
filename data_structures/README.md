@@ -94,6 +94,8 @@ def rangeSearch(left, right, root):
     node = next(node)
   return l
 ```
+##AVL Tree(self-balancing binary search tree)
+
 #Hash Tables<br>
 ##Direct Addressing<br>
 Input: 0 <= n <= 999<br>
