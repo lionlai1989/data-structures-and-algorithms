@@ -30,7 +30,7 @@ def binarySearch(array, low, high, key):
 ###Note: Using "Unicode Entity Codes for Math" to express math equation.<br>
 ##Polynomial Multiplication<br>
 two n-1 degree polys:<br>
-(a<sub>n-1</sub>X<sup>n-1</sup> + a<sub>n-2</sub>X<sup>n-2</sup> + ... + a<sub>1</sub>X + a<sub>0</sub>) &times; (b<sub>n-1</sub>X<sup>n-1</sup> + b<sub>n-2</sub>X<sup>n-2</sup> + ... + b<sub>1</sub>X + b<sub>0</sub>) = (c<sub>2n-2</sub>X<sup>n-1</sup> + a<sub>n-2</sub>X<sup>n-2</sup> + ... + a<sub>1</sub>X + a<sub>0</sub>)
+(a<sub>n-1</sub>X<sup>n-1</sup> + a<sub>n-2</sub>X<sup>n-2</sup> + ... + a<sub>1</sub>X + a<sub>0</sub>) &times; (b<sub>n-1</sub>X<sup>n-1</sup> + b<sub>n-2</sub>X<sup>n-2</sup> + ... + b<sub>1</sub>X + b<sub>0</sub>) = (c<sub>2n-2</sub>X<sup>2n-2</sup> + c<sub>2n-3</sub>X<sup>2n-3</sup> + ... + c<sub>1</sub>X + c<sub>0</sub>)
 
 A(X) = D<sub>1</sub>(X)X<sup>n/2</sup> + D<sub>0</sub>(X)<br>
 D<sub>1</sub>(X) = a<sub>n-1</sub>X<sup>n/2-1</sup> + a<sub>n-2</sub>X<sup>n/2-2</sup> + ... + a<sub>n/2</sub><br>
