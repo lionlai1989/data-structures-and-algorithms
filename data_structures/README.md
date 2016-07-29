@@ -1,3 +1,4 @@
+
 #Hash Tables<br>
 ##Direct Addressing<br>
 Input: 0 <= n <= 999<br>
@@ -28,6 +29,9 @@ Collision: h(O1) == h(O2), O1 != O2<br>
 Properties:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. memory: O(m+n).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. time: O(c+1), c is the length of the longest chain.<br>
+###Note<br>
+Python dictionaries are implemented using hash tables. It is an array whose indexes are obtained using a hash function on the keys. The goal of a hash function is to distribute the keys evenly in the array. 
+
 
 
 I finished most of exams except<br>
