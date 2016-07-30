@@ -112,7 +112,7 @@ f(n) = O(g(n)), f(n) grows **no more faster** than g(n).
 Tree property: 2<sup>d</sup> &ge; l, d &ge; log<sub>2</sub>l<br> 
 Selection Sort, Merge Sort, Bubble Sort, Insertion Sort<br>
 **quick sort:** 
-Mathematical analysis of quicksort shows that, on average, the algorithm takes O(n log n) comparisons to sort n items. In the worst case, it makes O(n2) comparisons, though this behavior is rare.<br>
+Mathematical analysis of quicksort shows that, on average, the algorithm takes O(n&sdot;log(n)) comparisons to sort n items. In the worst case, it makes O(n<sup>2</sup>) comparisons, though this behavior is rare.<br>
 
 
 I finished most of assignments except  
