@@ -16,6 +16,7 @@ Sparse Grapsh: each vertex has only a few edges.<br>
 edge list:<br>
 edges (A, B), (A, C), (A, D), (C, D)<br>
 adjacency matrix:<br>
+
 |   | A |  B  | C | D |
 |---|---|:---:|---|---|
 | A |   |  1  | 1 | 1 |
