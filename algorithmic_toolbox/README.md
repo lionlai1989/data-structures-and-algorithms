@@ -62,8 +62,51 @@ if T(n) = aT(&lceil;n/b&rceil;) + O(n<sup>d</sup>), (for constants, a > 0, b > 1
 T(n) &isin; O(n<sup>d</sup>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, if d > log<sub>b</sub>a, 2<sup>nd</sup> > 1<sup>st</sup><br>
 T(n) &isin; O(n<sup>d</sup>log(n))         , if d = log<sub>b</sub>a, 2<sup>nd</sup> = 1<sup>st</sup><br>
 T(n) &isin; O(n<sup>log<sub>b</sub>a</sup>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, if d < log<sub>b</sub>a, 2<sup>nd</sup> < 1<sup>st</sup><br>
-
-
+##Fibonacci<br>
+###Naive Solution:<br>
+```python
+def f(n):
+   if n <= 1:
+      return n
+   else:
+      f(n-1) + f(n)
+```
+###Smart Solution
+```python
+def f(n):
+   F = [0] * n
+   F[0] = 0
+   F[1] = 1
+   for i in range(2, n+1):
+      F[i] = F[i-1] + F[i-2]
+   return F(n)
+```
+##Greatest Common Divisor
+###Naive Solution
+```python
+def gcd(a, b):
+   best = 0
+   for d in range(1, a+b):
+      if a%d == 0 and b%d == 0:
+         best = d
+   return best
+```
+###Smart Solution: Euclidean Algorithm
+**lemma**: a' = a % b, gcd(a, b) = gcd(a', b) = gcd(b, a')<br>
+```python
+def gcd(a, b):
+   if b == 0:
+      return a
+   else:
+      a' = a % b
+   return gcd(b, a')
+```
+#Computing Runtime:
+Consider **asymptotic** runtimes. How does runtime scale with INPUT size?<br>
+log(n) ≪ &radic;n ≪ n ≪ nlog(n) ≪  n<sup>2</sup>  ≪  2<sup>n</sup><br>
+n<sup>a</sup> ≪ n<sup>b</sup> for 0 < a < b<br>
+n<sup>a</sup> ≪ b<sup>n</sup> for a > 0, b > 1<br>
+log<sub>b</sub>x<sup>p</sup> = p&sdot;log<sub>b</sub>x<br>
 
 I finished most of assignments except  
 '03_inversions.py',  
