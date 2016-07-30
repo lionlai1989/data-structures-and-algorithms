@@ -27,7 +27,7 @@ def binarySearch(array, low, high, key):
   else:
     binarySearch(array, mid+1, high, key)
 ```
-###Note: Using "Unicode Entity Codes for Math" to express math equation.<br>
+###Note: Using [Unicode Entity Codes for Math](http://symbolcodes.tlt.psu.edu/bylanguage/mathchart.html) to express math equation.<br>
 ##Polynomial Multiplication<br>
 two n-1 degree polys:<br>
 (a<sub>n-1</sub>x<sup>n-1</sup> + a<sub>n-2</sub>x<sup>n-2</sup> + ... + a<sub>1</sub>x + a<sub>0</sub>) &times; (b<sub>n-1</sub>x<sup>n-1</sup> + b<sub>n-2</sub>x<sup>n-2</sup> + ... + b<sub>1</sub>x + b<sub>0</sub>) = (c<sub>2n-2</sub>x<sup>2n-2</sup> + c<sub>2n-3</sub>x<sup>2n-3</sup> + ... + c<sub>1</sub>x + c<sub>0</sub>)<br>
