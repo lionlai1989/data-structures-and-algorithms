@@ -30,8 +30,16 @@ def binarySearch(array, low, high, key):
 ###Note: Using "Unicode Entity Codes for Math" to express math equation.<br>
 ##Polynomial Multiplication<br>
 two n-1 degree polys:<br>
-(a<sub>n-1</sub>x<sup>n-1</sup> + a<sub>n-2</sub>x<sup>n-2</sup> + ... + a<sub>1</sub>x + a<sub>0</sub>) &times; (b<sub>n-1</sub>x<sup>n-1</sup> + b<sub>n-2</sub>x<sup>n-2</sup> + ... + b<sub>1</sub>x + b<sub>0</sub>) = (c<sub>2n-2</sub>x<sup>2n-2</sup> + c<sub>2n-3</sub>x<sup>2n-3</sup> + ... + c<sub>1</sub>x + c<sub>0</sub>)
-
+(a<sub>n-1</sub>x<sup>n-1</sup> + a<sub>n-2</sub>x<sup>n-2</sup> + ... + a<sub>1</sub>x + a<sub>0</sub>) &times; (b<sub>n-1</sub>x<sup>n-1</sup> + b<sub>n-2</sub>x<sup>n-2</sup> + ... + b<sub>1</sub>x + b<sub>0</sub>) = (c<sub>2n-2</sub>x<sup>2n-2</sup> + c<sub>2n-3</sub>x<sup>2n-3</sup> + ... + c<sub>1</sub>x + c<sub>0</sub>)<br>
+### naive<br>
+```python
+product = [0]
+for i in range(n):
+   for j in range(n):
+      product[i+j] = product[i+j] + A[i]*B[j]
+```
+runtime: O(n<sup>2</sup>)<br>
+###naive Divide and Conquer<br>
 A(X) = D<sub>1</sub>(x)X<sup>n/2</sup> + D<sub>0</sub>(X)<br>
 D<sub>1</sub>(x) = a<sub>n-1</sub>X<sup>n/2-1</sup> + a<sub>n-2</sub>X<sup>n/2-2</sup> + ... + a<sub>n/2</sub><br>
 D<sub>0</sub>(x) = a<sub>n/2-1</sub>X<sup>n/2-1</sup> + a<sub>n/2-2</sub>X<sup>n/2-2</sup> + ... + a<sub>0</sub><br>
@@ -39,8 +47,20 @@ B(X) = E<sub>1</sub>(X)X<sup>n/2</sup> + E<sub>0</sub>(X)<br>
 E<sub>1</sub>(X) = b<sub>n-1</sub>X<sup>n/2-1</sup> + b<sub>n-2</sub>X<sup>n/2-2</sup> + ... + b<sub>n/2</sub><br>
 E<sub>0</sub>(X) = b<sub>n/2-1</sub>X<sup>n/2-1</sup> + b<sub>n/2-2</sub>X<sup>n/2-2</sup> + ... + b<sub>0&#189;</sub><br>
 AB = (D<sub>1</sub>E<sub>1</sub>)X<sup>n</sup> + (D<sub>1</sub>E<sub>0</sub> + D<sub>0</sub>E<sub>1</sub>)X<sup>n/2</sup> + D<sub>0</sub>E<sub>0</sub><br>
-i = 0 to log<sub>2</sub>n, &#8721;4<sup>i</sup> &times; k &times; n &frasl; 2<sup>i</sup> = O(n<sup>2</sup>)
-
+runtime: i = 0 to log<sub>2</sub>n, &#8721;4<sup>i</sup> &times; k &times; n &frasl; 2<sup>i</sup> = O(n<sup>2</sup>)<br>
+###faster Divide and Conquer by Karatsuba<br>
+A(x) = a<sub>1</sub>x + a<sub>0</sub><br>
+B(x) = b<sub>1</sub>x + b<sub>0</sub><br>
+C(x) = A(x)B(x) = a<sub>1</sub>b<sub>1</sub>x<sup>2</sup> + (a<sub>1</sub>b<sub>0</sub> + a<sub>0</sub>b<sub>1</sub>)x + a<sub>0</sub>b<sub>0</sub><br>
+derive a<sub>1</sub>b<sub>0</sub> + a<sub>0</sub>b<sub>1</sub> from a<sub>1</sub>b<sub>1</sub> and a<sub>0</sub>b<sub>0</sub><br>
+a<sub>1</sub>b<sub>0</sub> + a<sub>0</sub>b<sub>1</sub> = (a<sub>1</sub> + a<sub>0</sub>)(b<sub>1</sub> + b<sub>0</sub>) - a<sub>1</sub>b<sub>1</sub> - a<sub>0</sub>b<sub>1</sub><br>
+reduce times of calculation: 4 --> 3<br>
+runtime: i = 0 to log<sub>2</sub>n, &#8721;3<sup>i</sup> &times; k &times; n &frasl; 2<sup>i</sup> = O(n<sup>log<sub>2</sub></sup><sup>3</sup>)= O(n<sup>1.58</sup>)<br>
+##Master Theorem<br>
+if T(n) = aT(&lceil;n/b&rceil;) + O(n<sup>d</sup>), (for constants, a > 0, b > 1, d &ge; 0)<br>
+T(n) &isin; O(n<sup>d</sup>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, if d > log<sub>b</sub>a, 2<sup>nd</sup> > 1<sup>st</sup><br>
+T(n) &isin; O(n<sup>d</sup>log(n))         , if d = log<sub>b</sub>a, 2<sup>nd</sup> = 1<sup>st</sup><br>
+T(n) &isin; O(n<sup>log<sub>b</sub>a</sup>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, if d < log<sub>b</sub>a, 2<sup>nd</sup> < 1<sup>st</sup><br>
 
 
 
