@@ -42,7 +42,7 @@ runtime: O(n<sup>2</sup>)<br>
 ###naive Divide and Conquer<br>
 A(x) = D<sub>1</sub>(x)x<sup>n/2</sup> + D<sub>0</sub>(x)<br>
 D<sub>1</sub>(x) = a<sub>n-1</sub>x<sup>n/2-1</sup> + a<sub>n-2</sub>x<sup>n/2-2</sup> + ... + a<sub>n/2</sub><br>
-D<sub>0</sub>(x) = a<sub>n/2-1</subx<sup>n/2-1</sup> + a<sub>n/2-2</sub>x<sup>n/2-2</sup> + ... + a<sub>0</sub><br>
+D<sub>0</sub>(x) = a<sub>n/2-1</sub>x<sup>n/2-1</sup> + a<sub>n/2-2</sub>x<sup>n/2-2</sup> + ... + a<sub>0</sub><br>
 B(x) = E<sub>1</sub>(x)x<sup>n/2</sup> + E<sub>0</sub>(x)<br>
 E<sub>1</sub>(x) = b<sub>n-1</sub>x<sup>n/2-1</sup> + b<sub>n-2</sub>x<sup>n/2-2</sup> + ... + b<sub>n/2</sub><br>
 E<sub>0</sub>(x) = b<sub>n/2-1</sub>x<sup>n/2-1</sup> + b<sub>n/2-2</sub>x<sup>n/2-2</sup> + ... + b<sub>0&#189;</sub><br>
