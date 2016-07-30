@@ -4,34 +4,29 @@ runtimes of edges: |E|<br>
 Density: how many of edges you have in terms of the number of vertices.<br>
 Dense Grapsh: a large fraction of pairs of vertices are connected by edges |E| ~ |V|^2.<br>
 Sparse Grapsh: each vertex has only a few edges.<br>
-
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
+    edge [dir=none];
     A -> B;
     A -> C;
     A -> D;
     C -> D;
   }
 )<br>
-
 edge list:<br>
 edges (A, B), (A, C), (A, D), (C, D)<br>
-
 adjacency matrix:<br>
-
 |   | A |  B  | C | D |
 |---|---|:---:|---|---|
 | A |   |  1  | 1 | 1 |
-| B | 0 |  0  | 0 | 0 |
-| C | 0 |  0  | 0 | 1 |
-| D | 0 |  0  | 0 | 0 |
-
+| B | 1 |  0  | 0 | 0 |
+| C | 1 |  0  | 0 | 1 |
+| D | 1 |  0  | 1 | 0 |
 adjacent list:<br>
 A: [B, C, D]<br>
 B: []<br>
 C: [D]<br>
 D: []<br>
-
 We want to explore every edge leaving vertex we have found. In Depth First Order(DFS)
 
 make DFS useful by storing data:<br>
