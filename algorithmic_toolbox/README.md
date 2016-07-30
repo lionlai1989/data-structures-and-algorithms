@@ -107,6 +107,13 @@ log(n) ≪ &radic;n ≪ n ≪ nlog(n) ≪  n<sup>2</sup>  ≪  2<sup>n</sup><br>
 n<sup>a</sup> ≪ n<sup>b</sup> for 0 < a < b<br>
 n<sup>a</sup> ≪ b<sup>n</sup> for a > 0, b > 1<br>
 log<sub>b</sub>x<sup>p</sup> = p&sdot;log<sub>b</sub>x<br>
+f(n) = O(g(n)), f(n) grows **no more faster** than g(n).
+#Sorting Problem
+Tree property: 2<sup>d</sup> &ge; l, d &ge; log<sub>2</sub>l<br> 
+Selection Sort, Merge Sort, Bubble Sort, Insertion Sort<br>
+**quick sort:** 
+Mathematical analysis of quicksort shows that, on average, the algorithm takes O(n log n) comparisons to sort n items. In the worst case, it makes O(n2) comparisons, though this behavior is rare.<br>
+
 
 I finished most of assignments except  
 '03_inversions.py',  
