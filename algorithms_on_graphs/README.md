@@ -100,3 +100,20 @@ A **sink** is a vertex with no outgoing edges.<br>
 Two vertices v, w in a directed graph are connected if you can reach v from w and can reach w from v.<br>
 A directed graph can be connected into SCC where two vertices are connected if and only if they are in the same component.<br>
 Metagraph describes how SSC connected to each other and it's always a DFG.<br>
+##Paths and Lengths<br>
+Lengths of the path L(P) is the number of edges in the path.<br>
+L(D - E - S - A -B) = 4<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    edge [dir=none];
+    D -> E;
+    S -> D;
+    E -> S;
+    S -> A;
+    A -> B;
+    S -> C;
+    C -> B,
+  }
+)<br>
+##Distance
+The distance between two vertices is the length of the shortest path between.<br>
