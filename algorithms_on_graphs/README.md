@@ -86,3 +86,17 @@ search(vertex v)
     add edge (v,w) to end of L
 }
 ```
+##Linearing Ordering
+A cycle in a Graph G is a sequence of vertices v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n-1</sub>, v<sub>n</sub> so that (v<sub>1</sub>, v<sub>2</sub>), (v<sub>2</sub>, v<sub>3</sub>), ..., (v<sub>n-1</sub>, v<sub>n</sub>), (v<sub>n</sub>, v<sub>1</sub>) are all edges.<br>
+If G contains a cycle, it cannot be linearly ordered.<br>
+A directed graph G is a Directed Acyclic Graph(**DAG**) if it has no cycle.<br>
+Any **DAG** can be linearly ordered.<br>
+A **source** is a vertex with no incoming edges.<br>
+A **sink** is a vertex with no outgoing edges.<br>
+**Theorem:** If G is DAG, with an edge u to v, post(u) > post(v).<br>
+
+##Connectivity in Digraphs
+**Strongly Connected Components(SCC)**<br>
+Two vertices v, w in a directed graph are connected if you can reach v from w and can reach w from v.<br>
+A directed graph can be connected into SCC where two vertices are connected if and only if they are in the same component.<br>
+Metagraph describes how SSC connected to each other and it's always a DFG.<br>
