@@ -48,7 +48,7 @@ post(x): exit time of x<br>
 **lemma:** [pre(u), post(u)], [pre(v), post(v)] are either nested or disjoint.<br>
 #DFS stack vs. BFS queue
 **note**: Using iteration is not bad, but it can not record pre(vertex) and post(vertex). I choose to use recursion.
-```
+```c++
 bfs(G)
 {
   list L = empty
@@ -74,15 +74,15 @@ while(L nonempty)
   remove edge (v,w) from end of L
   if w not yet visited
   {
-      add (v,w) to T
-      search(w)
+    add (v,w) to T
+    search(w)
   }
 }
 
 search(vertex v)
 {
-visit(v);
-for each edge (v,w)
-  add edge (v,w) to end of L
+  visit(v);
+  for each edge (v,w)
+    add edge (v,w) to end of L
 }
 ```
