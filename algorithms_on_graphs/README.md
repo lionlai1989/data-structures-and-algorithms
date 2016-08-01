@@ -103,6 +103,7 @@ Metagraph describes how SSC connected to each other and it's always a DFG.<br>
 ##Paths and Lengths<br>
 Lengths of the path L(P) is the number of edges in the path.<br>
 L(D - E - S - A -B) = 4<br>
+L(D - S - C - B) = 3<br>
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
     edge [dir=none];
@@ -116,4 +117,5 @@ L(D - E - S - A -B) = 4<br>
   }
 )<br>
 ##Distance
-The distance between two vertices is the length of the shortest path between.<br>
+The distance between two vertices is the length of the **shortest** path between them.<br>
+d(D, B) = 3<br>
