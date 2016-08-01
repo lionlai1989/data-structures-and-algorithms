@@ -47,12 +47,12 @@ post(x): exit time of x<br>
 )<br>
 **lemma:** [pre(u), post(u)], [pre(v), post(v)] are either nested or disjoint.<br>
 #DFS stack vs. BFS queue
-**note**: Using iteration is not bad, but it can not record pre(vertex) and post(vertex). I choose to use recursion.
+**note**: Using iteration to implement DFS is not bad, but it can not record pre(vertex) and post(vertex). I choose to use **recursion** to implement DFS. For BFS, using **iteration** is a better choice because it makes more sense and is easy to understand.<br>
 ```c++
 bfs(G)
 {
   list L = empty
-  tree T = empty
+  shortest_path_tree T = empty
   choose a starting vertex x
   search(x)
   while(L nonempty)
@@ -60,6 +60,7 @@ bfs(G)
     if w not yet visited
     {
       add (v,w) to T
+      T[w] = v
       search(w)
     }
 }
@@ -113,9 +114,47 @@ L(D - S - C - B) = 3<br>
     S -> A;
     A -> B;
     S -> C;
-    C -> B,
+    C -> B;
   }
 )<br>
 ##Distance
 The distance between two vertices is the length of the **shortest** path between them.<br>
 d(D, B) = 3<br>
+### Distance Layers<br>
+Starting point is layer 0.<br>
+##Breadth First Search(BFS)
+Properties: The running time of breadth-first search is O(|E| + |V|).<br>
+##Reachability
+Node u is reachable from node S if there is a path from S to u.<br>
+##Shortest Path Tree<br>
+Consider the shortest path tree(bottom) built by breadth first search from vertex S on the graph(top).<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    edge [dir=none];
+    D -> E;
+    S -> D;
+    S -> A;
+    A -> B;
+    S -> C;
+    C -> B;
+    D -> F;
+    F -> G;
+    B -> G;
+    G -> H;
+    S -> E;
+    B -> H;
+  }
+)<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    G -> B;
+    H -> B;
+    B -> A;
+    F -> D;
+    A -> S;
+    C -> S;
+    D -> S;
+    E -> S;
+  }
+)<br>
+**Lemma:**Shortest path tree is indeed a tree.(There is no cycle in tree)<br>
