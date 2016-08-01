@@ -99,7 +99,12 @@ Property: for all node N, |N.left.height - N.right.height| &le; 1
 runtime: O(log(n))
 ###[AVL Tree wiki](https://en.wikipedia.org/wiki/AVL_tree)<br>
 ###[AVL Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)<br>
+Cool application: <br>
+	1. Order Statistic<br>
+	2. Color Flips<br>
 ##Splay Tree
+Property: It is a self-adjusting binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log n) amortized time. For many sequences of non-random operations, splay trees perform better than other search trees, even when the specific pattern of the sequence is unknown.<br>
+
 ###[Splay Tree wiki](https://en.wikipedia.org/wiki/Splay_tree)<br>
 ###[Splay Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)<br>
 #Hash Tables<br>
