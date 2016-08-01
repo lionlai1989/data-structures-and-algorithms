@@ -162,6 +162,7 @@ Collision: h(O<sub>1</sub>) == h(O<sub>2</sub>), O<sub>1</sub> != O<sub>2</sub><
 	];
 	}
 )
+
 Properties:<br>
   * 1. memory: O(m+n).<br>
   * 2. time: O(c+1), c is the length of the longest chain.<br>
