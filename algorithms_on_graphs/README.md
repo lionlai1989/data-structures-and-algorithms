@@ -2,8 +2,9 @@
 runtimes of vertices: |V|<br>
 runtimes of edges: |E|<br>
 Density: how many of edges you have in terms of the number of vertices.<br>
-Dense Grapsh: a large fraction of pairs of vertices are connected by edges |E| ~ |V|^2.<br>
+Dense Grapsh: a large fraction of pairs of vertices are connected by edges |E| ~ |V|<sup>2</sup>.<br>
 Sparse Grapsh: each vertex has only a few edges.<br>
+
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
     edge [dir=none];
@@ -13,8 +14,10 @@ Sparse Grapsh: each vertex has only a few edges.<br>
     C -> D;
   }
 )<br>
+
 edge list:<br>
 edges (A, B), (A, C), (A, D), (C, D)<br>
+
 adjacency matrix:<br>
 
 |   | A |  B  | C | D |
@@ -23,89 +26,135 @@ adjacency matrix:<br>
 | B | 1 |  0  | 0 | 0 |
 | C | 1 |  0  | 0 | 1 |
 | D | 1 |  0  | 1 | 0 |
+
 adjacent list:<br>
 A: [B, C, D]<br>
 B: []<br>
 C: [D]<br>
 D: []<br>
-We want to explore every edge leaving vertex we have found. In Depth First Order(DFS)
 
-make DFS useful by storing data:<br>
 clock: store the number of visits, clock ticks at every pre/post visit.<br>
+pre(x) : entrance time of x<br>
+post(x): exit time of x<br>
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
     edge [dir=none];
-    "1/8"->v;
-    A -> C;
-    A -> D;
-    C -> D;
+    "1/4" -> "2/3";
+    "5/12" -> "6/11";
+    "6/11" -> "7/8";
+    "6/11" -> "9/10";
   }
 )<br>
-lemma:<br>
-[pre(u), post(u)], [pre(v), post(v)] are either nested or disjoint.<br>
+**lemma:** [pre(u), post(u)], [pre(v), post(v)] are either nested or disjoint.<br>
+#DFS stack vs. BFS queue
+**note**: Using iteration to implement DFS is not bad, but it can not record pre(vertex) and post(vertex). I choose to use **recursion** to implement DFS. For BFS, using **iteration** is a better choice because it makes more sense and is easy to understand.<br>
+```c++
+bfs(G)
+{
+  list L = empty
+  shortest_path_tree T = empty
+  choose a starting vertex x
+  search(x)
+  while(L nonempty)
+    remove edge (v,w) from start of L
+    if w not yet visited
+    {
+      add (v,w) to T
+      T[w] = v
+      search(w)
+    }
+}
 
+dfs(G)
+{
+list L = empty
+tree T = empty
+choose a starting vertex x
+search(x)
+while(L nonempty)
+  remove edge (v,w) from end of L
+  if w not yet visited
+  {
+    add (v,w) to T
+    search(w)
+  }
+}
 
+search(vertex v)
+{
+  visit(v);
+  for each edge (v,w)
+    add edge (v,w) to end of L
+}
+```
+##Linearing Ordering
+A cycle in a Graph G is a sequence of vertices v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n-1</sub>, v<sub>n</sub> so that (v<sub>1</sub>, v<sub>2</sub>), (v<sub>2</sub>, v<sub>3</sub>), ..., (v<sub>n-1</sub>, v<sub>n</sub>), (v<sub>n</sub>, v<sub>1</sub>) are all edges.<br>
+If G contains a cycle, it cannot be linearly ordered.<br>
+A directed graph G is a Directed Acyclic Graph(**DAG**) if it has no cycle.<br>
+Any **DAG** can be linearly ordered.<br>
+A **source** is a vertex with no incoming edges.<br>
+A **sink** is a vertex with no outgoing edges.<br>
+**Theorem:** If G is DAG, with an edge u to v, post(u) > post(v).<br>
 
-
-
-
-
+##Connectivity in Digraphs
+**Strongly Connected Components(SCC)**<br>
+Two vertices v, w in a directed graph are connected if you can reach v from w and can reach w from v.<br>
+A directed graph can be connected into SCC where two vertices are connected if and only if they are in the same component.<br>
+Metagraph describes how SSC connected to each other and it's always a DFG.<br>
+##Paths and Lengths<br>
+Lengths of the path L(P) is the number of edges in the path.<br>
+L(D - E - S - A -B) = 4<br>
+L(D - S - C - B) = 3<br>
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
-    aize ="4,4";
-    main [shape=box];
-    main -> parse [weight=8];
-    parse -> execute;
-    main -> init [style=dotted];
-    main -> cleanup;
-    execute -> { make_string; printf};
-    init -> make_string;
-    edge [color=red];
-    main -> printf [style=bold,label="100 times"];
-    make_string [label="make a string"];
-    node [shape=box,style=filled,color=".7 .3 1.0"];
-    execute -> compare;
+    edge [dir=none];
+    D -> E;
+    S -> D;
+    E -> S;
+    S -> A;
+    A -> B;
+    S -> C;
+    C -> B;
   }
-)
-
-#DFS stack
-#BFS queue
-```
-**note**: Using iteration is not bad, but it can not record pre(vertex) and post(vertex). I choose to use recursion.
-    bfs(G)
-    {
-    list L = empty
-    tree T = empty
-    choose a starting vertex x
-    search(x)
-    while(L nonempty)
-        remove edge (v,w) from start of L
-        if w not yet visited
-        {
-        add (v,w) to T
-        search(w)
-        }
-    }
-
-    dfs(G)
-    {
-    list L = empty
-    tree T = empty
-    choose a starting vertex x
-    search(x)
-    while(L nonempty)
-        remove edge (v,w) from end of L
-        if w not yet visited
-        {
-        add (v,w) to T
-        search(w)
-        }
-    }
-
-    search(vertex v)
-    {
-    visit(v);
-    for each edge (v,w)
-        add edge (v,w) to end of L
-    }
-```
+)<br>
+##Distance
+The distance between two vertices is the length of the **shortest** path between them.<br>
+d(D, B) = 3<br>
+### Distance Layers<br>
+Starting point is layer 0.<br>
+##Breadth First Search(BFS)
+Properties: The running time of breadth-first search is O(|E| + |V|).<br>
+##Reachability
+Node u is reachable from node S if there is a path from S to u.<br>
+##Shortest Path Tree<br>
+Consider the shortest path tree(bottom) built by breadth first search from vertex S on the graph(top).<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    edge [dir=none];
+    D -> E;
+    S -> D;
+    S -> A;
+    A -> B;
+    S -> C;
+    C -> B;
+    D -> F;
+    F -> G;
+    B -> G;
+    G -> H;
+    S -> E;
+    B -> H;
+  }
+)<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    G -> B;
+    H -> B;
+    B -> A;
+    F -> D;
+    A -> S;
+    C -> S;
+    D -> S;
+    E -> S;
+  }
+)<br>
+**Lemma:**Shortest path tree is indeed a tree.(There is no cycle in tree)<br>

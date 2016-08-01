@@ -95,7 +95,18 @@ def rangeSearch(left, right, root):
   return l
 ```
 ##AVL Tree(self-balancing binary search tree)
+Property: for all node N, |N.left.height - N.right.height| &le; 1
+runtime: O(log(n))
+###[AVL Tree wiki](https://en.wikipedia.org/wiki/AVL_tree)<br>
+###[AVL Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)<br>
+Cool application: <br>
+	1. Order Statistic<br>
+	2. Color Flips<br>
+##Splay Tree
+Property: It is a self-adjusting binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log n) amortized time. For many sequences of non-random operations, splay trees perform better than other search trees, even when the specific pattern of the sequence is unknown.<br>
 
+###[Splay Tree wiki](https://en.wikipedia.org/wiki/Splay_tree)<br>
+###[Splay Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)<br>
 #Hash Tables<br>
 ##Direct Addressing<br>
 Input: 0 <= n <= 999<br>
@@ -114,15 +125,55 @@ m is called the cardinality of hash function h.<br>
 Properties:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. direct addressing with O(m) memory.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. we want small cardinality m.<br>
-Collision: h(O1) == h(O2), O1 != O2<br>
+Collision: h(O<sub>1</sub>) == h(O<sub>2</sub>), O<sub>1</sub> != O<sub>2</sub><br>
 ###Chaining<br>
-|array|
-|:---:|
-|0|
-|1 --> c --> d|
-|2|
-|3 --> a --> b|
-|4 --> e --> f --> g|
+	
+![Alt text](http://g.gravizo.com/g?
+  digraph g {
+    graph [
+		  rankdir = "LR"
+	  ];
+	  node [
+		  fontsize = "16"
+		  shape = "ellipse"
+	  ];
+	  edge [
+	  ];
+	  	"node0" [
+		label = "<f0> array| <f1> 0| <f2> 1| <f3> 2| <f4> 3| <f5> 4"
+		shape = "record"
+	];
+	"node1" [
+		label = "<f0> c"
+		shape = "record"
+	];
+	"node2" [
+		label = "<f0> d"
+		shape = "record"
+	];
+	  "node3" [
+		  label = "<f0> a"
+		  shape = "record"
+	  ];
+	  "node4" [
+		  label = "<f0> b"
+		  shape = "record"
+	  ];
+	  "node0":f1 -> "node1":f0 [
+	id = 0
+	];
+	"node0":f4 -> "node3":f0 [
+	id = 1
+	];
+	"node3":f0 -> "node4":f0 [
+	id = 2
+	];
+	"node1":f1 -> "node2":f0 [
+	id = 3
+	];
+	}
+)
+
 Properties:<br>
   * 1. memory: O(m+n).<br>
   * 2. time: O(c+1), c is the length of the longest chain.<br>
