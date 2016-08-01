@@ -114,15 +114,54 @@ m is called the cardinality of hash function h.<br>
 Properties:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. direct addressing with O(m) memory.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. we want small cardinality m.<br>
-Collision: h(O1) == h(O2), O1 != O2<br>
+Collision: h(O<sub>1</sub>) == h(O<sub>2</sub>), O<sub>1</sub> != O<sub>2</sub><br>
 ###Chaining<br>
-|array|
-|:---:|
-|0|
-|1 --> c --> d|
-|2|
-|3 --> a --> b|
-|4 --> e --> f --> g|
+	
+![Alt text](http://g.gravizo.com/g?
+  digraph g {
+    graph [
+		  rankdir = "LR"
+	  ];
+	  node [
+		  fontsize = "16"
+		  shape = "ellipse"
+	  ];
+	  edge [
+	  ];
+	  	"node0" [
+		label = "<f0> array| <f1> 0| <f2> 1| <f3> 2| <f4> 3| <f5> 4"
+		shape = "record"
+	];
+	"node1" [
+		label = "<f0> c"
+		shape = "record"
+	];
+	"node2" [
+		label = "<f0> d"
+		shape = "record"
+	];
+	  "node3" [
+		  label = "<f0> a"
+		  shape = "record"
+	  ];
+	  "node4" [
+		  label = "<f0> b"
+		  shape = "record"
+	  ];
+	  "node0":f1 -> "node1":f0 [
+	id = 0
+	];
+	"node0":f4 -> "node3":f0 [
+	id = 1
+	];
+	"node3":f0 -> "node4":f0 [
+	id = 2
+	];
+	"node1":f1 -> "node2":f0 [
+	id = 3
+	];
+	}
+)
 Properties:<br>
   * 1. memory: O(m+n).<br>
   * 2. time: O(c+1), c is the length of the longest chain.<br>
