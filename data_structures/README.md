@@ -95,7 +95,13 @@ def rangeSearch(left, right, root):
   return l
 ```
 ##AVL Tree(self-balancing binary search tree)
-
+Property: for all node N, |N.left.height - N.right.height| &le; 1
+runtime: O(log(n))
+###[AVL Tree wiki](https://en.wikipedia.org/wiki/AVL_tree)<br>
+###[AVL Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)<br>
+##Splay Tree
+###[Splay Tree wiki](https://en.wikipedia.org/wiki/Splay_tree)<br>
+###[Splay Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/SplayTree.html)<br>
 #Hash Tables<br>
 ##Direct Addressing<br>
 Input: 0 <= n <= 999<br>
