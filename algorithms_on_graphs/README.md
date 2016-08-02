@@ -158,3 +158,4 @@ Consider the shortest path tree(bottom) built by breadth first search from verte
   }
 )<br>
 **Lemma:**Shortest path tree is indeed a tree.(There is no cycle in tree)<br>
+**node:** remove clock, pre and post from class Node. They seem to be useless in BFS.
