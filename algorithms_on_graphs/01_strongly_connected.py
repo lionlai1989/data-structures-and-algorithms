@@ -9,7 +9,7 @@ class Node():
         self.key = None
         self.pre = 0
         self.post = 0
-        self.count = 0
+        self.group = None
         self.adj = None
 
 def dfs(node, v, group):

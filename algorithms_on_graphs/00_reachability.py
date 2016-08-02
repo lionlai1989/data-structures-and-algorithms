@@ -5,7 +5,7 @@ class Node():
 		self.key = None
 		self.pre = 0
 		self.post = 0
-		self.count = 0
+		self.group = None
 		self.adj = None
 
 def dfs(node, v, group):
@@ -19,7 +19,6 @@ def dfs(node, v, group):
 			dfs.detect_cycle = 1
 	dfs.clock += 1
 	v.post = dfs.clock
-
 
 def reach(adj, x, y):
 	dfs.detect_cycle = 0
