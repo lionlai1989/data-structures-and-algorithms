@@ -140,7 +140,7 @@ else
 |E|1|1|1|2|3|4|5|6|7|7|
 |D|2|2|1|2|3|4|5|6|7|8|
 |I|3|3|2|1|2|3|4|5|6|7|
-|T|4|4|3|2|3|2|3|4|5|6|
+|T|4|4|3|2|2|2|3|4|5|6|
 |I|5|5|4|3|3|3|3|4|5|6|
 |N|6|6|5|4|4|4|4|3|4|5|
 |G|7|7|6|5|5|5|5|4|4|5|
@@ -175,8 +175,17 @@ def edit_distance(x, y):
 				arr[i, j] = min(insertion, deletion, mismatch)
    return int(arr[m, n])
 ```
+#Dynamic Array<br>
+len(array) = **2**<br>
+len(array) = **4**<br>
+len(array) = **8**<br>
+len(array) = **16**<br>
+len(array) = **32**<br>
 
-    
+**Aggregate Method (or brute force)**<br>
+**Accounting Method (or the banker's method)**<br>
+**Potential Method (or the physicist's method)**<br>
+
 I finished most of assignments except  
 '03_inversions.py',  
 '03_points_and_segments.py',  
