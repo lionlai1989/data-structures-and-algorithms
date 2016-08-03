@@ -177,9 +177,22 @@ def find(i):
 	return i
 ```
 union(x, y) merges two sets containing x and y. Hang a **shorter** one under the root of **taller** one. --> union by rank heuristic.<br>
+runtime: O(log(n))<br>
 rank[1...n]: rank[i] is the height of the subtree whose root is i.<br>
-
-
+```python
+def union(i, j):
+i_id = find(i)
+j_id = find(j)
+if i_id == j_id:
+	return
+if rank[i_id] > rank[j_id]:
+	parent[j_id] = i_id
+else:
+	parent[i_id] = j_id
+	if rank[i_id] == rank[j_id]:
+		rank[j_id] = rank[j_id] + 1
+```
+###[Disjoint Sets and Path Compression wiki](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)<br>
 
 ##AVL Tree(self-balancing binary search tree)
 Property: for all node N, |N.left.height - N.right.height| &le; 1
