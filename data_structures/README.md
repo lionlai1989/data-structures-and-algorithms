@@ -94,6 +94,52 @@ def rangeSearch(left, right, root):
     node = next(node)
   return l
 ```
+##Complete Binary Tree: Binary Heap<br>
+Properties:<br>
+  	1. A binary tree is complete if all its levels are filled except possibly the last one which is filled from left to right.<br>
+  	2. The key stored in each node is either greater than or equal to or less than or equal to the keys in the node's children, according to some total order.<br>
+  	3. Height of tree of node n &le; O(log(n))<br>
+  	4. **It can be stored as array.**<br>
+
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    edge [dir=none];
+    "0/2" -> "1/8";
+    "0/2" -> "2/24";
+    "1/8" -> "3/15";
+    "1/8" -> "4/21";
+    "2/24" -> "5/56";
+    "2/24" -> "6/50";
+    "3/15" -> "7/67";
+    "3/15" -> "8/87";
+    "4/21" -> "9/90";
+  }
+)<br>
+
+|array|0|1|2|3|4|5|6|7|8|9|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+||2|8|24|15|21|56|50|67|87|90|
+parent[i] = &lfloor;(i-1)/2&rfloor;<br>
+leftchild[i] = 2 * i + 1<br>
+rightchild[i] = 2 * i + 2<br>
+Turn random array into a heap.<br>
+```python
+def buildHeap(arr[0 to n-1]):
+	size = n
+	for i from ⌊(size-1)/2⌋ down to 1:
+		siftdown(i)
+```
+```python
+def heapSort(arr[0 to n-1]):
+	size = n
+	buildHeap(arr)
+	repeat n-1 time:
+		swap(arr[0], arr[size-1])
+		size = size - 1
+		siftdown(arr[0])
+```	
+###[Binary Heap wiki](https://en.wikipedia.org/wiki/Binary_heap)<br>
+
 ##AVL Tree(self-balancing binary search tree)
 Property: for all node N, |N.left.height - N.right.height| &le; 1
 runtime: O(log(n))
