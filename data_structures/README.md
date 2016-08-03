@@ -100,7 +100,15 @@ Properties:<br>
   	2. The key stored in each node is either greater than or equal to or less than or equal to the keys in the node's children, according to some total order.<br>
   	3. Height of tree of node n &le; O(log(n))<br>
   	4. **It can be stored as array.**<br>
-
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    edge [dir=none];
+    a -> b;
+    a -> c;
+    b -> d;
+    b -> e;
+  }
+)<br>
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
     edge [dir=none];
@@ -139,6 +147,39 @@ def heapSort(arr[0 to n-1]):
 		siftdown(arr[0])
 ```	
 ###[Binary Heap wiki](https://en.wikipedia.org/wiki/Binary_heap)<br>
+##Disjoint Sets:<br>
+
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    edge [dir=none];
+    5 -> 5;
+    6 -> 6;
+    6 -> 8;
+    6 -> 1;
+    4 -> 4;
+    4 -> 2;
+    4 -> 3;
+    4 -> 9;
+    9 -> 7;
+  }
+)<br>
+
+
+||1|2|3|4|5|6|7|8|9|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|parent|6|4|4|4|5|6|9|6|4|
+parent[1...n]: parent[i] is the parent of i.<br>
+find(i) retrns **ID** of the set containing x, if x and y lie in the same set, then find(x) == find(y), otherwise, find(x) != find(y).<br>
+```python
+def find(i):
+	while i != parent[i]:
+		i = parent[i]
+	return i
+```
+union(x, y) merges two sets containing x and y. Hang a **shorter** one under the root of **taller** one. --> union by rank heuristic.<br>
+rank[1...n]: rank[i] is the height of the subtree whose root is i.<br>
+
+
 
 ##AVL Tree(self-balancing binary search tree)
 Property: for all node N, |N.left.height - N.right.height| &le; 1
