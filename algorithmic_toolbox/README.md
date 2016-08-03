@@ -144,16 +144,39 @@ else
 |I|5|5|4|3|3|3|3|4|5|6|
 |N|6|6|5|4|4|4|4|3|4|5|
 |G|7|7|6|5|5|5|5|4|4|5|
-**eg.**
+**eg.**<br>
 D[1, 1] = min( D[1, 0] + 1 --> 2, <br>
-               D[0, 1] + 1 --> 2, <br>
-               D[0, 0] + δ(x[1], y[1]) --> 1<br>
-               )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D[0, 1] + 1 --> 2, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D[0, 0] + δ(x[1], y[1]) --> 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
 D[2, 1] = min( D[2, 0] + 1 --> 3, <br>
-               D[1, 1] + 1 --> 2, <br>
-               D[1, 0] + δ(x[2], y[1]) --> 1, &#8757;x[2] = D =y[1], &#8756;δ = 0<br>
-               )               <br>
-               
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D[1, 1] + 1 --> 2, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D[1, 0] + δ(x[2], y[1]) --> 1, &#8757;x[2] = D =y[1], &#8756;δ = 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+Use backtrack pointer to reconstruct path.<br>
+```python
+def edit_distance(x, y):
+	m = len(x)
+	n = len(y)
+	arr = np.zeros(shape=(m+1, n+1))
+	for i in range(m+1):
+	   arr[i, 0] = i
+	for i in range(n+1):
+		arr[0, i] = i
+	for i in range(1, m+1):
+		for j in range(1, n+1):
+			insertion = arr[i, j-1] + 1
+			deletion = arr[i-1, j] + 1
+			match = arr[i-1, j-1]
+			mismatch = arr[i-1, j-1] + 1
+			if x[i-1] == y[j-1]:
+				arr[i, j] = min(insertion, deletion, match)
+			else:
+				arr[i, j] = min(insertion, deletion, mismatch)
+   return int(arr[m, n])
+```
+
+    
 I finished most of assignments except  
 '03_inversions.py',  
 '03_points_and_segments.py',  
