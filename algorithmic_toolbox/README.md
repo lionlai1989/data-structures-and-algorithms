@@ -112,8 +112,48 @@ Tree property: 2<sup>d</sup> &ge; l, d &ge; log<sub>2</sub>l<br>
 Selection Sort, Merge Sort, Bubble Sort, Insertion Sort<br>
 **quick sort:** 
 Mathematical analysis of quicksort shows that, on average, the algorithm takes O(n&sdot;log(n)) comparisons to sort n items. In the worst case, it makes O(n<sup>2</sup>) comparisons, though this behavior is rare.<br>
-##Editing Distance
+##Editing Distance<br>
+**M**atch<br>
+**R**eplace<br>
+**I**nsert into x<br>
+**D**elete from x<br>
 
+||1|2|3|4|5|6|7|8|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|X|E|D|I|T|I|N|G||
+|Y|D|I|S|T|A|N|C|E|
+
+```c
+Let D[0, j] = 0, D[i, 0] = i, other wise
+D[i, j] = min( D[i-1, j] + 1, 
+               D[i, j-1] + 1, 
+               D[i-1, j-1] + δ(x[i], y[j]))
+if x[i] = y[j]
+   δ = 0;
+else
+   δ = 1;
+```
+||||D|I|S|T|A|N|C|E|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| | |0|1|2|3|4|5|6|7|8|
+| |0|0|1|2|3|4|5|6|7|8|
+|E|1|1|1|2|3|4|5|6|7|7|
+|D|2|2|1|2|3|4|5|6|7|8|
+|I|3|3|2|1|2|3|4|5|6|7|
+|T|4|4|3|2|3|2|3|4|5|6|
+|I|5|5|4|3|3|3|3|4|5|6|
+|N|6|6|5|4|4|4|4|3|4|5|
+|G|7|7|6|5|5|5|5|4|4|5|
+**eg.**
+D[1, 1] = min( D[1, 0] + 1 --> 2, <br>
+               D[0, 1] + 1 --> 2, <br>
+               D[0, 0] + δ(x[1], y[1]) --> 1<br>
+               )<br>
+D[2, 1] = min( D[2, 0] + 1 --> 3, <br>
+               D[1, 1] + 1 --> 2, <br>
+               D[1, 0] + δ(x[2], y[1]) --> 1, &#8757;x[2] = D =y[1], &#8756;δ = 0<br>
+               )               <br>
+               
 I finished most of assignments except  
 '03_inversions.py',  
 '03_points_and_segments.py',  
