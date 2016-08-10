@@ -20,34 +20,34 @@ class Vertex():
 
 def distance(adj, cost, s, t):
 	size = len(adj)
-	h = []
+	graph = []
 	for i in range(size):
-		h.append(Vertex())
-	h[s].dist = 0 # set distance of start point as 0.
+		graph.append(Vertex())
+	graph[s].dist = 0 # set distance of start point as 0.
 	for i in range(size):
-		h[i].value = i
+		graph[i].value = i
 	for i in range(size):
-		h[i].weight = cost[i]
+		graph[i].weight = cost[i]
 	for i in range(size):
 		for j in adj[i]:
-			h[i].adj.append(h[j])
+			graph[i].adj.append(graph[j])
 
 	dist_que = []
 	for i in range(size):
-		dist_que.append(h[i].dist)
+		dist_que.append(graph[i].dist)
 
-	#tmp_h = copy.deepcopy(h) 	I prefer not to use this function since it has 
+	#tmp_g = copy.deepcopy(h) 	I prefer not to use this function since it has 
 	# 							a issue about recursion limit.
-	tmp_h = []
+	tmp_g = []
 	for i in range(size):
-		tmp_h.append(h[i])
+		tmp_g.append(graph[i])
 
-	while len(h) != 0:
+	while len(graph) != 0:
 		index_u = np.argmin(dist_que)
 		#index_u = min(range(len(dist_que)), key=dist_que.__getitem__)
-		u = h[index_u]
+		u = graph[index_u]
 		#print("u_val =", u.value)
-		h.pop(index_u)
+		graph.pop(index_u)
 		dist_que.pop(index_u)
 
 		for v_idx, v in enumerate(u.adj):
@@ -58,17 +58,17 @@ def distance(adj, cost, s, t):
 			if alt < v.dist:
 				v.dist = alt
 				v.prev = u
-				tmp_h[v.value] = v
-				#print("v_new_dist = ", tmp_h[v.value].dist)
+				tmp_g[v.value] = v
+				#print("v_new_dist = ", tmp_g[v.value].dist)
 				
 				# when updating vertex, dist list should be updated too. 
 				# It's a list of integer, not list of objects(mutable). 
 				dist_que = []
-				for i in range(len(h)):
-					dist_que.append(h[i].dist)
+				for i in range(len(graph)):
+					dist_que.append(graph[i].dist)
 			
-	if tmp_h[t].dist < 1e9:
-		return tmp_h[t].dist
+	if tmp_g[t].dist < 1e9:
+		return tmp_g[t].dist
 	else:
 		return -1	
 
