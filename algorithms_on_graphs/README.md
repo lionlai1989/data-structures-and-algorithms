@@ -159,7 +159,7 @@ Consider the shortest path tree(bottom) built by breadth first search from verte
 )<br>
 **Lemma:**Shortest path tree is indeed a tree.(There is no cycle in tree)<br>
 **node:** remove clock, pre and post from class Node. They seem to be useless in BFS.
-##Shortest path with non-negative edge weights.
+##Shortest path with **non-negative** edge weights.
 ###Dijkstra's algorithm
 ```python
  1  function Dijkstra(Graph, source):
@@ -187,5 +187,13 @@ Consider the shortest path tree(bottom) built by breadth first search from verte
 ```
 **Running time:** O(|V|<sup>2</sup>) or O((|V|+|E|)log(|V|)) depending on the implementation.<br>
 ##Shortest path with negative and positive edge weights.
-**Triangular arbitrage**
-
+**Triangular arbitrage** insert photo
+j = 1 to k, &sum; log(r<sub>e<sub>j</sub></sub>) --> max<br>
+j = 1 to k, &sum; -log(r<sub>e<sub>j</sub></sub>) --> min<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    RUBLE -> EURO [label="0.013"];
+    RUBLE -> USDOLLAR [label="0.015"];
+    EUR -> USDOLLAR [label="1.16"];
+  }
+)<br>
