@@ -186,14 +186,80 @@ Consider the shortest path tree(bottom) built by breadth first search from verte
 22      return dist[], prev[]
 ```
 **Running time:** O(|V|<sup>2</sup>) or O((|V|+|E|)log(|V|)) depending on the implementation.<br>
+
 ##Shortest path with negative and positive edge weights.
 **Triangular arbitrage** insert photo
+xy --> max <=> log<sub>2</sub.(x) + log<sub>2</sub.(y)<br>
 j = 1 to k, &sum; log(r<sub>e<sub>j</sub></sub>) --> max<br>
 j = 1 to k, &sum; -log(r<sub>e<sub>j</sub></sub>) --> min<br>
 ![Alt text](http://g.gravizo.com/g?
   digraph G {
     RUBLE -> EURO [label="0.013"];
     RUBLE -> USDOLLAR [label="0.015"];
-    EUR -> USDOLLAR [label="1.16"];
+    EURO -> USDOLLAR [label="1.16"];
   }
 )<br>
+0.013 * 1.16 = 0.01508 > 0.015<br>
+-logarithmize<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    RUBLE -> EURO [label="6.2653"];
+    RUBLE -> USDOLLAR [label="6.0589"];
+    EURO -> USDOLLAR [label="-0.214"];
+  }
+)<br>
+6.2653 - 0.214 = 6.0513 < 6.0589<br>
+Negative Weight Cycle:<br>
+![Alt text](http://g.gravizo.com/g?
+  digraph G {
+    S -> A [label="4"];
+    S -> B [label="3"];
+    A -> B [label="-2"];
+    B -> C [label="-3"];
+    C -> A [label="4"];
+    B -> D [label="1"];
+    C -> D [label="2"];
+  }
+)<br>
+d(S, A) = d(S, B) = d(S, C) = d(S, D) = -&infin;<br>
+###Bellman–Ford algorithm
+```python
+function BellmanFord(list vertices, list edges, vertex source)
+   ::distance[],predecessor[]
+
+   // This implementation takes in a graph, represented as
+   // lists of vertices and edges, and fills two arrays
+   // (distance and predecessor) with shortest-path
+   // (less cost/distance/metric) information
+
+   // Step 1: initialize graph
+   for each vertex v in vertices:
+       distance[v] := inf             // At the beginning , all vertices have a weight of infinity
+       predecessor[v] := null         // And a null predecessor
+   
+   distance[source] := 0              // Except for the Source, where the Weight is zero 
+   
+   // Step 2: relax edges repeatedly
+   for i from 1 to size(vertices)-1: # We do V-1 times since vertex would be possibly updated after every iteration.
+                                     # If no distance being update during iteration, the iteration can be stopped.
+       for each edge (u, v) with weight w in edges:
+           if distance[u] + w < distance[v]:
+               distance[v] := distance[u] + w
+               predecessor[v] := u
+        
+
+   // Step 3: check for negative-weight cycles
+   for each edge (u, v) with weight w in edges:
+       if distance[u] + w < distance[v]:
+           error "Graph contains a negative-weight cycle"
+   return distance[], predecessor[]
+```
+**Running time:** O(|V||E|).<br>
+Corollary1: In a graph without negative weight cycles, Bellman-Ford algorithm correctly finds all distances from the starting node S.<br>
+Corollary2: If there is no negative weight cycle reachable from S such that u is reachable from this negative weight cycle, Bellman-Ford algorithm correctly finds dist[u] = d(S, U)<br>
+###Detect Infinite Arbitrage
+Note that there is an advanced problem "Exchanging Money Optimally" in the Programming Assignment 4, and to solve that problem you will need to implement a criterion to determine whether the shortest path from one node to another node in the graph can be made arbitrarily short. The correct criterion for testing that there exist arbitrarily short paths from node S to node u (or, equivalently, that **the shortest path from S to u is −∞**; or that infinite arbitrage is possible for exchanging US dollars into Russian rubles) is the following:<br>
+Run Bellman-Ford's algorithm to find shortest paths from node S for exactly |V| iterations, where |V| is the number of nodes in the graph.<br>
+Save all the nodes for which the distance estimate was decreased on the V-th iteration - denote the set of these nodes by A.<br>
+Find all nodes reachable from any node in A, use breadth-first search to do that (put all the nodes from A in the queue initially, then run the regular breadth-first search with that queue). Denote the set of these nodes by B.<br>
+There exist arbitrarily short paths from S to u if and only if u is in the set B.<br>
