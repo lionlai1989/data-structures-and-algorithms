@@ -27,7 +27,7 @@ def negative_cycle(adj, cost):
 	graph[0].dist = 0 # set distance of start point as 0.
 
 	for j in range(size-1): # We do V-1 times since vertex would be possibly updated after every iteration.
-                            # If no distance being update during iteration, the iteration can be stopped.
+							# If no distance being update during iteration, the iteration can be stopped.
 		for i in range(size):
 			u = graph[i]
 			for v_idx, v in enumerate(u.adj):
