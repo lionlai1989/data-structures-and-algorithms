@@ -259,7 +259,7 @@ Corollary1: In a graph without negative weight cycles, Bellman-Ford algorithm co
 Corollary2: If there is no negative weight cycle reachable from S such that u is reachable from this negative weight cycle, Bellman-Ford algorithm correctly finds dist[u] = d(S, U)<br>
 ###Detect Infinite Arbitrage
 Note that there is an advanced problem "Exchanging Money Optimally" in the Programming Assignment 4, and to solve that problem you will need to implement a criterion to determine whether the shortest path from one node to another node in the graph can be made arbitrarily short. The correct criterion for testing that there exist arbitrarily short paths from node S to node u (or, equivalently, that **the shortest path from S to u is −∞**; or that infinite arbitrage is possible for exchanging US dollars into Russian rubles) is the following:<br>
-Run Bellman-Ford's algorithm to find shortest paths from node S for exactly |V| iterations, where |V| is the number of nodes in the graph.<br>
-Save all the nodes for which the distance estimate was decreased on the V-th iteration - denote the set of these nodes by A.<br>
-Find all nodes reachable from any node in A, use breadth-first search to do that (put all the nodes from A in the queue initially, then run the regular breadth-first search with that queue). Denote the set of these nodes by B.<br>
-There exist arbitrarily short paths from S to u if and only if u is in the set B.<br>
+1. Run Bellman-Ford's algorithm to find shortest paths from node S for exactly |V|-1 iterations, where |V| is the number of nodes in the graph.<br>
+2. Save all the nodes for which the distance estimate was decreased on the V-th iteration - denote the set of these nodes by A.<br>
+3. Find all nodes reachable from any node in A, use breadth-first search to do that (put all the nodes from A in the queue initially, then run the regular breadth-first search with that queue). Denote the set of these nodes by B.<br>
+4. There exist arbitrarily short paths from S to u if and only if u is in the set B.<br>
