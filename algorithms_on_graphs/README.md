@@ -263,3 +263,32 @@ Note that there is an advanced problem "Exchanging Money Optimally" in the Progr
 2. Save all the nodes for which the distance estimate was decreased on the V-th iteration - denote the set of these nodes by A.<br>
 3. Find all nodes reachable from any node in A, use breadth-first search to do that (put all the nodes from A in the queue initially, then run the regular breadth-first search with that queue). Denote the set of these nodes by B.<br>
 4. There exist arbitrarily short paths from S to u if and only if u is in the set B.<br>
+
+##Minimun Spanning Tree
+###Kruskal's algorithm
+```python
+KRUSKAL(G):
+A = ∅
+foreach v ∈ G.V:
+    MAKE-SET(v)
+foreach (u, v) in G.E ordered by weight(u, v), increasing:
+    if FIND-SET(u) ≠ FIND-SET(v):
+        A = A ∪ {(u, v)}
+        UNION(u, v)
+return A
+```
+###Prim's algorithm
+```python
+Prim(G):
+for all u ∈ V:
+    cost[u] <- +∞, parent[u] <- nil
+pick any initial vertex u0
+cost[u0] <- 0
+PrioQ <- MakeQueue(V), {priority is cost}
+while PrioQ is not empty:
+    v <- ExtractMin(PrioQ)
+    for all {v, z} ∈ E:
+        if z ∈ PrioQ and cost[z] > w(v, z):
+            cost[z] <- w(v, z), parent[z] <- v
+            ChangePriority(PrioQ, z, cost[z])
+```
