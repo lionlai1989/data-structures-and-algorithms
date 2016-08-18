@@ -87,7 +87,7 @@ def clustering(x, y, k):
             # clusters.
             if edges_counter == size-k+1:
                 return u_v[1]
-    return result
+    return
 '''
 KRUSKAL(G):
     A = ∅
