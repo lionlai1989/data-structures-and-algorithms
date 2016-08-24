@@ -264,7 +264,8 @@ Note that there is an advanced problem "Exchanging Money Optimally" in the Progr
 3. Find all nodes reachable from any node in A, use breadth-first search to do that (put all the nodes from A in the queue initially, then run the regular breadth-first search with that queue). Denote the set of these nodes by B.<br>
 4. There exist arbitrarily short paths from S to u if and only if u is in the set B.<br>
 
-##Minimun Spanning Tree
+##Minimum Spanning Tree
+MST is a spanning tree of a connected, undirected graph. It connects all the vertices together with the minimal total weighting for its edges.<br>
 ###Kruskal's algorithm
 ```python
 KRUSKAL(G):
