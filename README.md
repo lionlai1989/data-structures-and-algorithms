@@ -1,6 +1,6 @@
 
 # Data Structures and Algorithms
-This repository hosts materials for the course, [Data Structures and Algorithms Specialization, offered by Coursera and UC San Diego](https://www.coursera.org/specializations/data-structures-algorithms), including my own solutions to the problems and personal notes accumulated during the course.
+This repository hosts materials for the course, [Data Structures and Algorithms Specialization](https://www.coursera.org/specializations/data-structures-algorithms), offered by Coursera and UC San Diego, including my own solutions to the problems and personal notes accumulated during the course.
 
 
 ## Description
