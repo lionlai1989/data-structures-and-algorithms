@@ -1,6 +1,5 @@
-
 # Data Structures and Algorithms
-This repository hosts materials for the course, [Data Structures and Algorithms Specialization](https://www.coursera.org/specializations/data-structures-algorithms), offered by Coursera and UC San Diego, including my own solutions to the problems and personal notes accumulated during the course.
+This repository hosts materials for the course, [Data Structures and Algorithms Specialization](https://www.coursera.org/specializations/data-structures-algorithms), offered by Coursera and UC San Diego, including my own solutions to the problems.
 
 
 ## Description
@@ -19,25 +18,60 @@ This Specialization explores fundamental in data structures and algorithms and i
 
 
 ## Getting Started
-All the results in Jupyter Notebook can be reproduced by following the instructions below.
+All the results in this repository can be reproduced by following the instructions below.
 
 ### System Dependencies
 Before you start, you need to make sure you have the following dependencies installed:
-* **Python-3.10:** Python-3.10 is used throughout all the solutions to the problems. 
+* **Python-3.10**:
+* **C++**:
 
 
 ### Downloading
 * To download this repository, run the following command:
 ```shell
-git clone https://github.com/lionlai1989/Deep_Learning_Specialization.git
+git clone https://github.com/lionlai1989/data-structures-and-algorithms.git
 ```
 
+### Install Dependencies
+#### Python
+- Create and activate a Python virtual environment
+```
+python3.10 -m venv venv_algorithms && source venv_algorithms/bin/activate
+```
+- Update `pip` and `setuptools`:
+```
+python3 -m pip install --upgrade pip setuptools
+```
+- Install required Python packages in `requirements.txt`.
+```
+python3 -m pip install -r requirements.txt
+```
+
+#### C++
+#### Rust
+
+### Running Code
+Now you are ready to run the code of each programming language.
+
+#### Python
+Please remember to select the kernel you just created in your virtual environment `venv_deep_learning`.
+```python
+python3
+```
+
+#### C++
+```cpp
+g++ -pipe -O2 -std=c++11
+```
+
+#### Rust
 
 ### Document
 The table of contents of this file can be regenerated with the following steps.
 - Create a `temp` folder and copy/paste this `README.md` file into `temp`.
 - `cd` to `temp` and run `docker run --rm -it -v $(pwd):/usr/src jorgeandrada/doctoc`
 - Copy/paste `README.md` to the original location and delete `temp`.
+
 
 ## Help
 
