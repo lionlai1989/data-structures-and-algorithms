@@ -85,7 +85,7 @@ Any feedback, comments, and questions are welcome.
 * 2.0.0
     * Continue this course in 2023 and aim to understand EVERYTHING.
 * 1.0.0
-    * Finish first four courses in 2016, but didn't continue till the end.
+    * Finish first three courses in 2016, but didn't continue till the end.
 
 ## License
 
