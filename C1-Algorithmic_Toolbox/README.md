@@ -12,10 +12,10 @@ This section provides a concise summary of each assignment in the course, accomp
 
 - Week 3: Greedy Algorithms  
   Not all problems can be solved by greedy algorithms. So, make sure the first safe choice is optimal choice. Then you can continue. If not, then greedy algorithm is probably not the way to go.  
-  Does the problem 3.2.2 Maximum Value of the Loot. Finished the problems 1 to 3. The problems 4 to 7 is too hard.
+  Finished the problems 1 to 3. The problems 4 to 7 is too hard.
 
 - Week 4: Divide-and-Conquer  
-  world
+  binary search, selection sort, merge sort, non-counting sort, quick sort. Finsih the problems from 1 to 3. The problems 4 to 7 is too hard.
 
 - Week 5: Dynamic Programming 1  
   hello
@@ -35,6 +35,7 @@ This section provides a concise summary of each assignment in the course, accomp
 - Week 3:
 
 - Week 4:
+  [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)
 
 - Week 5:
 
