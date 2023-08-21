@@ -92,6 +92,13 @@ for details
 ## Acknowledgments
 Explore the inspiration and references listed here to further expand your knowledge and sharpen your skills.
 
+## References
+- [Ace Your Next Coding Interview by Learning Algorithms](https://stepik.org/course/102772/promo?utm_source=bookwebpage&utm_medium=intro)
+- [DISCRETE MATHEMATICS for Computer Science](http://discrete-math.tilda.ws/?utm_source=coursera&utm_medium=reading&utm_campaign=toolbox)
+- [DPV] Sanjoy Dasgupta, Christos Papadimitriou, and Umesh Vazirani. Algorithms (1st Edition). McGraw-Hill Higher Education. 2008.
+- [CP] Phillip Compeau, Pavel Pevzner. Bioinformatics Algorithms: An Active Learning Approach. Active Learning Publishers. 2014.
+
+
 <!-- 
 Before reading ".py" files, you should read the corresponding **".pdf"** file. PDF files have information about what the **purpose** of assignments is and what **input** and **output** should look like. If you have any other questions, feel free to ask me. 
 ###Note: Using [Unicode Entity Codes for Math](http://symbolcodes.tlt.psu.edu/bylanguage/mathchart.html) to edit math equations.<br>
