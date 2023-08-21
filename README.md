@@ -5,16 +5,13 @@ This repository hosts materials for the course, [Data Structures and Algorithms 
 ## Description
 This Specialization explores fundamental in data structures and algorithms and is divided into six series courses, each offering thorough explanation and unique insights into this dynamic field.
 
-- [Algorithmic Toolbox]():
+- [Algorithmic Toolbox](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C1-Algorithmic_Toolbox):
 
 
-- [Data Structures]():
+- [Data Structures](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C2-Data_Structures):
 
 
-- [Algorithms on Graphs]():
-
-
-- [Algorithms on Strings]():
+- [Algorithms on Graphs](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C3-Algorithms_on_Graphs):
 
 
 ## Getting Started
