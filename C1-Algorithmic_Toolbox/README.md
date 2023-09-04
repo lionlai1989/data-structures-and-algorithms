@@ -25,7 +25,7 @@ This section provides a brief overview of the course content for each week.
   - An advaned question:
     We want to compute not only the edit distance $d$ between two words, but also the number of ways to edit the first
     word to get the second word using the minimum number $d$ of edits. Two ways are considered different if there is
-    such $i$, $1 < 4 < d$  that on the $i$-th step the edits in these ways are different.
+    such $i$, $1 \leq i \leq d$  that on the $i$-th step the edits in these ways are different.
     
     To solve this problem, in addition to computing array $T$ with edit distances between prefixes of the first and
     second word, we compute array $ways$, such that:
