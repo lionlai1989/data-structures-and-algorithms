@@ -1,14 +1,16 @@
 # Algorithmic Toolbox
 
+Algorithmic Toolbox covers basic algorithmic techniques and ideas for computational problems arising frequently in practical applications: sorting and searching, divide and conquer, greedy algorithms, dynamic programming. I learn a lot of theory: how to sort data and how it helps for searching; how to break a large problem into pieces and solve them recursively; when it makes sense to proceed greedily; how dynamic programming is used in genomic studies.
+
 ## Description
 
-This section provides a concise summary of each assignment in the course, accompanied by brief descriptions and a few figures.
+This section provides a concise summary of each assignment in the course.
 
 - Week 1: Programming Challenges  
   Finish all problems.
 
 - Week 2: Algorithmic Warm-Up  
-  Finished the problems 1 to 4. The problems 5 to 8 is too hard.  
+  Finished the problems 1 to 6. The problems 7 to 8 is too hard.  
 
 - Week 3: Greedy Algorithms  
   Not all problems can be solved by greedy algorithms. So, make sure the first safe choice is optimal choice. Then you can continue. If not, then greedy algorithm is probably not the way to go.  
@@ -20,15 +22,44 @@ This section provides a concise summary of each assignment in the course, accomp
 - Week 5: Dynamic Programming 1  
   Finish problems 1 to 3. 
 
+  - An advaned question:
+    We want to compute not only the edit distance $d$ between two words, but also the number of ways to edit the first
+    word to get the second word using the minimum number $d$ of edits. Two ways are considered different if there is
+    such $i$, $1 < 4 < d$  that on the $i$-th step the edits in these ways are different.
+    
+    To solve this problem, in addition to computing array $T$ with edit distances between prefixes of the first and
+    second word, we compute array $ways$, such that:
+    $$
+    ways[i, j] = \text{the number of ways to edit the prefix of length i of the first word to get the prefix of length j of the second word using the minimum possible number of edits}.
+    $$
+
+    The following is the correct way to compute $ways[i, j]$ based on the previously computed values:
+    ```
+    ways[i, j] = 0
+    if T[i, j] == T[i - 1, j] + 1:
+        ways[i, j] += ways[i - 1, j]
+    if T[i, j] == T[i, j - 1] + 1:
+        ways[i, j] += ways[i, j - 1]
+    if word1[i] == word2[j] and T[i, j] == T[i - 1, j - 1]:
+        ways[i, j] += ways[i - 1, j - 1]
+    if T[i, j] == T[i - 1, j - 1] + 1:
+        ways[i, j] += ways[i - 1, j - 1]
+    ```
+    $T[i, j]$ is computed based on $T[i-1, j]$, $T[i, j-1]$ and $T[i-1, j-1]: we decide what will be
+    the last edit and then try to use the minimum number of edits needed before that, which is already stored
+    in the table $T$ for all the variants of the last editing action. If the minimum number of edits $T[i, j]$ can be
+    obtained via different last editing actions, we should sum all the ways that exactly $T[i, j]$ edits can be
+    made to change the $i$-th prefix of the first word into the $j$-th prefix of the second word.
+    First $\text{\textit{if}}$ checks all the ways when the last action is to delete the last symbol. Second $\text{\textit{if}}$ checks all the ways
+    when the last action is to insert the necessary symbol. Third $\text{\textit{if}}$ checks all the ways to match last symbols of
+    the prefixes. Last $\text{\textit{if}}$ checks all the ways to replace the last symbol of the $i$-th prefix of the first word by the
+    last symbol of the $j$-th prefix of the second word.
+
 - Week 6: Dynamic Programming 2  
   Finish problems 1 and 3.
 
 
 ## Reference:
-- [Ace Your Next Coding Interview by Learning Algorithms](https://stepik.org/course/102772/promo?utm_source=bookwebpage&utm_medium=intro)
-- [DISCRETE MATHEMATICS for Computer Science](http://discrete-math.tilda.ws/?utm_source=coursera&utm_medium=reading&utm_campaign=toolbox)
-- [DPV] Sanjoy Dasgupta, Christos Papadimitriou, and Umesh Vazirani. Algorithms (1st Edition). McGraw-Hill Higher Education. 2008.
-- [CP] Phillip Compeau, Pavel Pevzner. Bioinformatics Algorithms: An Active Learning Approach. Active Learning Publishers. 2014.
 
 - Week 1:
 

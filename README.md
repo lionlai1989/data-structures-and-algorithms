@@ -3,10 +3,10 @@ This repository hosts materials for the course, [Data Structures and Algorithms 
 
 
 ## Description
-This Specialization explores fundamental in data structures and algorithms and is divided into six series courses, each offering thorough explanation and unique insights into this dynamic field.
+This specialization explores fundamental in data structures and algorithms and is divided into six series courses, each offering thorough explanation and unique insights into this field.
 
 - [Algorithmic Toolbox](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C1-Algorithmic_Toolbox):
-
+  The initial course covers algorithmic strategies, including greedy algorithms, divide-and-conquer algorithms, and dynamic programming. These three techniques are better described as strategic approaches rather than specific algorithms. The principles underlying these strategies are readily observable in more specialized algorithms. For instance, merge sort exemplifies the divide-and-conquer algorithm, and dynamic programming can be applied to solve problems like finding the shortest path in an undirected graph.
 
 - [Data Structures](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C2-Data_Structures):
 
@@ -45,7 +45,6 @@ python3 -m pip install -r requirements.txt
 ```
 
 #### C++
-#### Rust
 
 ### Running Code
 Now you are ready to run the code of each programming language.
@@ -60,8 +59,6 @@ python3
 ```cpp
 g++ -pipe -O2 -std=c++11
 ```
-
-#### Rust
 
 ### Document
 The table of contents of this file can be regenerated with the following steps.
