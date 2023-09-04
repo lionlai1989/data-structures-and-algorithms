@@ -4,7 +4,7 @@ Algorithmic Toolbox covers basic algorithmic techniques and ideas for computatio
 
 ## Description
 
-This section provides a concise summary of each assignment in the course.
+This section provides a brief overview of the course content for each week.
 
 - Week 1: Programming Challenges  
   Finish all problems.

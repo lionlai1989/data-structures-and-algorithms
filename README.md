@@ -5,11 +5,11 @@ This repository hosts materials for the course, [Data Structures and Algorithms 
 ## Description
 This specialization explores fundamental in data structures and algorithms and is divided into six series courses, each offering thorough explanation and unique insights into this field.
 
-- [Algorithmic Toolbox](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C1-Algorithmic_Toolbox):
+- [Algorithmic Toolbox](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C1-Algorithmic_Toolbox):  
   The initial course covers algorithmic strategies, including greedy algorithms, divide-and-conquer algorithms, and dynamic programming. These three techniques are better described as strategic approaches rather than specific algorithms. The principles underlying these strategies are readily observable in more specialized algorithms. For instance, merge sort exemplifies the divide-and-conquer algorithm, and dynamic programming can be applied to solve problems like finding the shortest path in an undirected graph.
 
-- [Data Structures](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C2-Data_Structures):
-
+- [Data Structures](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C2-Data_Structures):  
+  To maximize the potential of good algorithms, it's essential to have efficient data structures for data manipulation. In this course, I delve into various data structures, including arrays, linked lists, and hash tables, gaining a comprehensive understanding of their strengths and weaknesses and when to employ each of them.
 
 - [Algorithms on Graphs](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C3-Algorithms_on_Graphs):
 
