@@ -27,6 +27,10 @@ into this field.
 
 -   [Algorithms on Graphs](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C3-Algorithms_on_Graphs):
 
+
+-   [Algorithms on Strings](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C4-Algorithms_on_Strings):
+
+
 ## Getting Started
 
 All the results in this repository can be reproduced by following the instructions
