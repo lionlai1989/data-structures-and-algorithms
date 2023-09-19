@@ -14,8 +14,7 @@ This section provides a brief overview of the course content for each week.
 -   Week 1: Programming Challenges  
     The first week of this specialization emphasizes that identifying smarter
     problem-solving approaches can significantly reduce processing compared to naive
-    algorithms. For example, consider finding the maximum product of two distinct
-    numbers in a sequence of non-negative integers.
+    algorithms.
 
 -   Week 2: Algorithmic Warm-Up  
     This week's objective is to demonstrate how a clever insight can make an algorithm
@@ -32,14 +31,26 @@ This section provides a brief overview of the course content for each week.
 
 -   Week 4: Divide-and-Conquer  
     Divide and conquer is a classical strategy applicable to various algorithms,
-    including binary search, selection sort, merge sort, non-counting sort, and quick
-    sort.
+    including binary search, polynomial multiplication, selection sort, merge sort,
+    counting sort, and quick sort.
 
 -   Week 5: Dynamic Programming 1  
-    Finish problems 1 to 3.
+    Dynamic programming is a problem-solving technique that involves breaking down a
+    complex problem into a sequence of simpler subproblems, solving each subproblem only
+    once, and storing the results in a table to avoid redundant computations. The
+    central idea is to build solutions to larger problems by using solutions to smaller
+    problems. This approach begins by solving the smallest subproblem and incrementally
+    progressing towards the desired problem size, with each step relying on the
+    solutions to previous, smaller subproblems. Such a process minimizes redundant work
+    and significantly enhances the overall efficiency of problem-solving.
+
+    It often works well for problems with overlapping subproblems and optimal
+    substructure. It can be applied to solve common problems such as the money change
+    problem and calculating the edit distance between two strings.
 
 -   Week 6: Dynamic Programming 2  
-    Finish problems 1 and 3.
+    A typical problem which can be solved with dynamic programming is Maximum Amount of
+    Gold.
 
 ## Reference:
 
