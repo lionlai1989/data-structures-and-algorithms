@@ -22,14 +22,13 @@ into this field.
 -   [Data Structures](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C2-Data_Structures):  
     To maximize the potential of good algorithms, it's essential to have efficient data
     structures for data manipulation. In this course, I delve into various data
-    structures, including arrays, linked lists, and hash tables, gaining a comprehensive
+    structures, including arrays, linked lists, stacks, queues, priority queues,
+    disjoint-sets, hash tables, and binary search trees, gaining a comprehensive
     understanding of their strengths and weaknesses and when to employ each of them.
 
 -   [Algorithms on Graphs](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C3-Algorithms_on_Graphs):
 
-
 -   [Algorithms on Strings](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C4-Algorithms_on_Strings):
-    
 
 ## Getting Started
 
