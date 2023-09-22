@@ -39,7 +39,7 @@ This section provides a brief overview of the course content for each week.
     such as finding a path from an entrance to an exit in a maze or determining the
     number of connected components in a graph, particularly useful for addressing
     graph-related challenges. Typically, disjoint sets are implemented using linked
-    list-based tree structures, providing an amortized constant cost of $O(log^*(n))$
+    list-based tree structures, providing an amortized constant cost of $O(log^{*}(n))$
     for a single operation. It's important to highlight that for any practical value of
     $n$, even as large as $2^{65536}$, the value of $log^*(n)$ remains less than 5.
 
