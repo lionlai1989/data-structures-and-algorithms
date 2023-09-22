@@ -41,7 +41,7 @@ This section provides a brief overview of the course content for each week.
     graph-related challenges. Typically, disjoint sets are implemented using linked
     list-based tree structures, providing an amortized constant cost of $O(log^*(n))$
     for a single operation. It's important to highlight that for any practical value of
-    (n), even as large as $2^{65536}$, the value of $log^*(n)$ remains less than 5.
+    $n$, even as large as $2^{65536}$, the value of $log^*(n)$ remains less than 5.
 
 -   Week 4: Hash Tables
 

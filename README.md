@@ -7,8 +7,7 @@ offered by Coursera and UC San Diego, including my own solutions to the problems
 ## Description
 
 This specialization explores fundamental in data structures and algorithms and is
-divided into six series courses, each offering thorough explanation and unique insights
-into this field.
+divided into six series courses:
 
 -   [Algorithmic Toolbox](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C1-Algorithmic_Toolbox):  
     The initial course covers algorithmic strategies, including greedy algorithms,
