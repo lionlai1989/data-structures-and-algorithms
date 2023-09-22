@@ -58,6 +58,8 @@ This section provides a brief overview of the course content for each week.
 
 -   Week 2:
 
+    - [Big-O visualization](https://htmlpreview.github.io/?https://github.com/lionlai1989/data-structures-and-algorithms/blob/master/C1-Algorithmic_Toolbox/bigo.html)
+
 -   Week 3:
 
 -   Week 4:
