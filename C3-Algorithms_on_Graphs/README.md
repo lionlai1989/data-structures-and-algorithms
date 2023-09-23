@@ -3,7 +3,7 @@
 ## Description
 
 This section provides a brief overview of the course content for each week. The notation
-used here designates V as the set of all vertices and E as the set of all edges.
+used here designates $V$ as the set of all vertices and $E$ as the set of all edges.
 
 -   Week 1: Decomposition of Graphs 1
 
@@ -50,7 +50,8 @@ used here designates V as the set of all vertices and E as the set of all edges.
 
     Finally, adding preorder and postorder attributes to vertices can track the
     execution of a DFS. One important feature of this is that for any vertices, u and v,
-    the intervals `(pre(u), post(u))` and `(pre(v), post(v))` are either nested or disjoint.
+    the intervals `(pre(u), post(u))` and `(pre(v), post(v))` are either nested or
+    disjoint.
 
 -   Week 2: Decomposition of Graphs 2
 
