@@ -11,46 +11,52 @@ used in genomic studies.
 
 This section provides a brief overview of the course content for each week.
 
--   Week 1: Programming Challenges  
-    The first week of this specialization emphasizes that identifying smarter
-    problem-solving approaches can significantly reduce processing compared to naive
-    algorithms.
+### Week 1: Programming Challenges
 
--   Week 2: Algorithmic Warm-Up  
-    This week's objective is to demonstrate how a clever insight can make an algorithm
-    for a problem significantly faster, potentially achieving a billion-fold
-    improvement. This concept is illustrated through classical problems involving
-    Fibonacci numbers, greatest common divisors, and least common multiples.
+The first week of this specialization emphasizes that identifying smarter
+problem-solving approaches can significantly reduce processing compared to naive
+algorithms.
 
--   Week 3: Greedy Algorithms  
-    Not all problems are suited for greedy algorithms. However, if a problem can be
-    tackled using a greedy approach, it generally adheres to the following pattern: make
-    the first safe choice the optimal choice and continue by consistently selecting that
-    choice for subsequent steps. If the initial safe choice isn't the optimal one, then
-    a greedy algorithm is probably not appropriate for solving that specific problem.
+### Week 2: Algorithmic Warm-Up
 
--   Week 4: Divide-and-Conquer  
-    Divide and conquer is a classical strategy applicable to various algorithms,
-    including binary search, polynomial multiplication, selection sort, merge sort,
-    counting sort, and quick sort.
+This week's objective is to demonstrate how a clever insight can make an algorithm for a
+problem significantly faster, potentially achieving a billion-fold improvement. This
+concept is illustrated through classical problems involving Fibonacci numbers, greatest
+common divisors, and least common multiples.
 
--   Week 5: Dynamic Programming 1  
-    Dynamic programming is a problem-solving technique that involves breaking down a
-    complex problem into a sequence of simpler subproblems, solving each subproblem only
-    once, and storing the results in a table to avoid redundant computations. The
-    central idea is to build solutions to larger problems by using solutions to smaller
-    problems. This approach begins by solving the smallest subproblem and incrementally
-    progressing towards the desired problem size, with each step relying on the
-    solutions to previous, smaller subproblems. Such a process minimizes redundant work
-    and significantly enhances the overall efficiency of problem-solving.
+### Week 3: Greedy Algorithms
 
-    It often works well for problems with overlapping subproblems and optimal
-    substructure. It can be applied to solve common problems such as the money change
-    problem and calculating the edit distance between two strings.
+Not all problems are suited for greedy algorithms. However, if a problem can be tackled
+using a greedy approach, it generally adheres to the following pattern: make the first
+safe choice the optimal choice and continue by consistently selecting that choice for
+subsequent steps. If the initial safe choice isn't the optimal one, then a greedy
+algorithm is probably not appropriate for solving that specific problem.
 
--   Week 6: Dynamic Programming 2  
-    A typical problem which can be solved with dynamic programming is Maximum Amount of
-    Gold.
+### Week 4: Divide-and-Conquer
+
+Divide and conquer is a classical strategy applicable to various algorithms, including
+binary search, polynomial multiplication, selection sort, merge sort, counting sort, and
+quick sort.
+
+### Week 5: Dynamic Programming 1
+
+Dynamic programming is a problem-solving technique that involves breaking down a complex
+problem into a sequence of simpler subproblems, solving each subproblem only once, and
+storing the results in a table to avoid redundant computations. The central idea is to
+build solutions to larger problems by using solutions to smaller problems. This approach
+begins by solving the smallest subproblem and incrementally progressing towards the
+desired problem size, with each step relying on the solutions to previous, smaller
+subproblems. Such a process minimizes redundant work and significantly enhances the
+overall efficiency of problem-solving.
+
+It often works well for problems with overlapping subproblems and optimal substructure.
+It can be applied to solve common problems such as the money change problem and
+calculating the edit distance between two strings.
+
+### Week 6: Dynamic Programming 2
+
+A typical problem which can be solved with dynamic programming is Maximum Amount of
+Gold.
 
 ## Reference:
 
@@ -58,7 +64,7 @@ This section provides a brief overview of the course content for each week.
 
 -   Week 2:
 
-    - [Big-O visualization](https://htmlpreview.github.io/?https://github.com/lionlai1989/data-structures-and-algorithms/blob/master/C1-Algorithmic_Toolbox/bigo.html)
+    -   [Big-O Visualization](https://htmlpreview.github.io/?https://github.com/lionlai1989/data-structures-and-algorithms/blob/master/C1-Algorithmic_Toolbox/bigo.html)
 
 -   Week 3:
 
