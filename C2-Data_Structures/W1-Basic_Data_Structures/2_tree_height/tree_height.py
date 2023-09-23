@@ -4,7 +4,14 @@ import sys
 import threading
 from collections import deque
 
-def compute_height(n, parents):
+# In Python, the default limit on recursion depth is rather low,
+# so raise it here for this problem. Note that to take advantage
+# of bigger stack, we have to launch the computation in a new thread.
+sys.setrecursionlimit(10**7)  # max depth of recursion
+threading.stack_size(2**27)  # new thread will get stack of such size
+
+
+def compute_height_naive(n, parents):
     # Naive solution:
     max_height = 0
 
@@ -26,6 +33,7 @@ def compute_height(n, parents):
 
 
 class Node:
+    # It is not a binary tree.
     def __init__(self, val):
         self.val = val
         self.nodes = []
@@ -48,6 +56,7 @@ def find_tree_depth_dfs(root):
 
     return max_child_depth + 1
 
+
 def find_tree_depth_bfs(root):
     if not root:
         return 0
@@ -66,10 +75,11 @@ def find_tree_depth_bfs(root):
 
     return depth
 
+
 def compute_height_faster(n, parents):
     # Faster solution:
     nodes = [Node(i) for i in range(n)]
-    
+
     for i in range(n):
         parent_idx = parents[i]
         if parent_idx == -1:
@@ -77,7 +87,7 @@ def compute_height_faster(n, parents):
         else:
             nodes[parent_idx].add_child(nodes[i])
 
-    depth = find_tree_depth_bfs(nodes[root])
+    depth = find_tree_depth_dfs(nodes[root])
     return depth
 
 
@@ -92,9 +102,4 @@ def main():
     print(compute_height_faster(n, parents))
 
 
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()

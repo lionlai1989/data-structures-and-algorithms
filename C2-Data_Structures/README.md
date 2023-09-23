@@ -1,5 +1,9 @@
 # Data Structures
 
+This course is the **cornerstone** of the specialization, providing essential
+foundational knowledge required to grasp more advanced algorithms such as trees, graph
+theory, pattern searching, etc.
+
 ## Description
 
 This section provides a brief overview of the course content for each week.
@@ -7,24 +11,24 @@ This section provides a brief overview of the course content for each week.
 -   Week 1: Basic Data Structures
 
     Arrays and linked lists serve as fundamental building blocks for data storage in
-    computers, and there's no any other option. In this introduction, we'll explore the
-    pros and cons of both arrays and singly/doubly linked lists. Later, we'll dive into
-    abstract data structures, stacks (First In, Last Out) and queues (First In, First
-    Out). The choice between array-based and linked list-based implementations of stacks
-    and queues depends on specific application needs. Some applications may prefer
-    arrays, while others may opt for linked lists. Finally, we'll offer a brief overview
-    of binary trees.
+    computers, and there's no any other option. I explore the advantages and drawbacks
+    of both arrays and singly/doubly linked lists. Later, I dive into abstract data
+    structures, stacks (First In, Last Out) and queues (First In, First Out). The choice
+    between array-based and linked list-based implementations of stacks and queues
+    depends on specific application needs. Some applications may prefer arrays, while
+    others may opt for linked lists. Finally, a brief overview of binary trees is
+    introduced.
 
 -   Week 2: Dynamic Arrays and Amortized Analysis
 
     As introduced in week 1, primitive arrays have a fixed size. To overcome this
-    limitation, we can employ an abstraction data type called a dynamic array, which
-    allows for resizable arrays, offering greater convenience. To my surprise, both
-    C++'s `std::vector` and Python's `list` rely on resizable dynamic arrays as their
+    limitation, I can use an abstraction data type called a dynamic array, which allows
+    for resizable arrays, offering greater convenience. To my surprise, both C++'s
+    `std::vector` and Python's `list` rely on resizable dynamic arrays as their
     underlying implementations, rather than linked lists. Dynamic arrays must
-    periodically resize themselves, necessitating the copying of n elements to a new
-    array, resulting in a time complexity of O(n) for this operation. However, the
-    amortized cost for each insert operation remains constant at O(1).
+    periodically resize themselves, necessitating the copying of $n$ elements to a new
+    array, resulting in a time complexity of $O(n)$ for this operation. However, the
+    amortized cost for each insert operation remains constant at $O(1)$.
 
 -   Week 3: Priority Queues and Disjoint Sets
 
@@ -39,9 +43,10 @@ This section provides a brief overview of the course content for each week.
     such as finding a path from an entrance to an exit in a maze or determining the
     number of connected components in a graph, particularly useful for addressing
     graph-related challenges. Typically, disjoint sets are implemented using linked
-    list-based tree structures, providing an amortized constant cost of $O(log^{\ast}(n))$
-    for a single operation. It's important to highlight that for any practical value of
-    $n$, even as large as $2^{65536}$, the value of $log^{\ast}(n)$ remains less than 5.
+    list-based tree structures, providing an amortized constant cost of
+    $O(log^{\ast}(n))$ for a single operation. It's important to highlight that for any
+    practical value of $n$, even as large as $2^{65536}$, the value of $log^{\ast}(n)$
+    remains less than 5.
 
 -   Week 4: Hash Tables
 
@@ -57,7 +62,19 @@ This section provides a brief overview of the course content for each week.
 
 -   Week 5: Binary Search Trees 1
 
+    It covers the fundamentals of binary search trees (BSTs) and AVL trees, which are a
+    type of balanced binary search tree. In an AVL tree, for every node N, the absolute
+    difference between the heights of its left and right subtrees is always less than or
+    equal to 1, $|N.left.height - N.right.height| \le 1$. This balance property allows
+    us to execute all tree operations in logarithmic time complexity $O(log(n))$.
+
 -   Week 6: Binary Search Trees 2
+
+    It discusses the utility of BSTs in order statistics, enabling the retrieval of the
+    k-th largest element, the median, or the 25th percentile element efficiently.
+    Subsequently, it dives into Splay trees, which aim to optimize tree access patterns.
+    Splay trees capitalize on prior knowledge of frequently accessed nodes by
+    reorganizing the tree to position them closer to the root for quicker access.
 
 ## Reference:
 
