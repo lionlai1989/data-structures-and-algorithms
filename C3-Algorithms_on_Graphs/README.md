@@ -5,63 +5,63 @@
 This section provides a brief overview of the course content for each week. The notation
 used here designates $V$ as the set of all vertices and $E$ as the set of all edges.
 
--   Week 1: Decomposition of Graphs 1
+### Week 1: Decomposition of Graphs 1
 
-    This section covers the fundamentals of undirected graphs. First, it explores three
-    common graph representations. For instance, consider the graph below:
+This section covers the fundamentals of undirected graphs. First, it explores three
+common graph representations. For instance, consider the graph below:
 
-    ```
-          B   C
-           \ /|
-            A |
-             \|
-              D
-    ```
+```
+        B   C
+        \ /|
+        A |
+            \|
+            D
+```
 
-    The representations are as follows:
+The representations are as follows:
 
-    **Edge list:**
+**Edge list:**
 
-    ```
-    (A, B), (A, C), (A, D), (C, D)
-    ```
+```
+(A, B), (A, C), (A, D), (C, D)
+```
 
-    **Adjacency Matrix:**
+**Adjacency Matrix:**
 
-    ```
-      A B C D
-    A 0 1 1 1
-    B 1 0 0 0
-    C 1 0 0 1
-    D 1 0 1 0
-    ```
+```
+    A B C D
+A 0 1 1 1
+B 1 0 0 0
+C 1 0 0 1
+D 1 0 1 0
+```
 
-    **Adjacency List:**
+**Adjacency List:**
 
-    ```
-    A.adj: [B, C, D]
-    B.adj: [A]
-    C.adj: [A, D]
-    D.adj: [A, c]
-    ```
+```
+A.adj: [B, C, D]
+B.adj: [A]
+C.adj: [A, D]
+D.adj: [A, c]
+```
 
-    Later, it discusses checking the reachability of all vertices and finding connected
-    components in a graph, both with a time complexity of $O(|V|+|E|)$.
+Later, it discusses checking the reachability of all vertices and finding connected
+components in a graph, both with a time complexity of $O(|V|+|E|)$.
 
-    Finally, adding preorder and postorder attributes to vertices can track the
-    execution of a DFS. One important feature of this is that for any vertices, u and v,
-    the intervals `(pre(u), post(u))` and `(pre(v), post(v))` are either nested or
-    disjoint.
+Finally, adding preorder and postorder attributes to vertices can track the execution of
+a DFS. One important feature of this is that for any vertices, u and v, the intervals
+`(pre(u), post(u))` and `(pre(v), post(v))` are either nested or disjoint.
 
--   Week 2: Decomposition of Graphs 2
+### Week 2: Decomposition of Graphs 2
 
--   Week 3: Paths in Graphs 1
+### Week 3: Paths in Graphs 1
 
--   Week 4: Paths in Graphs 2
+### Week 4: Paths in Graphs 2
 
--   Week 5: Minimum Spanning Trees
+### Week 5: Minimum Spanning Trees
 
--   Week 6: Advanced Shortest Paths Algorithms: 1000 to 25000 times faster than the
+### Week 6: Advanced Shortest Paths Algorithms: 1000 to 25000 times faster than the
+
     classical Dijkstra's algorithm in practice
 
 ## Reference:
