@@ -66,8 +66,8 @@ with the reversal of the graph $G^R$.
 ### Week 3: Paths in Graphs 1
 
 It introduces **Breadth-First Search (BFS)** for finding minimum distances between any
-two vertices, constructing the shortest path between them, with a runtime of
-$O(|E| + |V|)$
+two vertices and constructing the shortest path between them with a runtime of
+$O(|E| + |V|)$.
 
 ### Week 4: Paths in Graphs 2
 
@@ -76,9 +76,7 @@ continuing onward, graphs will be introduced with weighted edges.
 
 ### Week 5: Minimum Spanning Trees
 
-### Week 6: Advanced Shortest Paths Algorithms: 1000 to 25000 times faster than the
-
-    classical Dijkstra's algorithm in practice
+### Week 6: Advanced Shortest Paths Algorithms
 
 ## Reference:
 
