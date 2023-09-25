@@ -32,7 +32,7 @@ The representations are as follows:
 **Adjacency Matrix:**
 
 ```
-    A B C D
+  A B C D
 A 0 1 1 1
 B 1 0 0 0
 C 1 0 0 1
