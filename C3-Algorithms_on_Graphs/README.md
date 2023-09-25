@@ -3,7 +3,8 @@
 ## Description
 
 This section provides a brief overview of the course content for each week. The notation
-used here designates $V$ as the set of all vertices and $E$ as the set of all edges.
+used here designates $G$ as a graph, $V$ as the set of all vertices and $E$ as the set
+of all edges.
 
 ### Week 1: Decomposition of Graphs 1
 
@@ -11,10 +12,12 @@ This section covers the fundamentals of undirected graphs. First, it explores th
 common graph representations. For instance, consider the graph below:
 
 ```
-        B   C
-        \ /|
-        A |
-            \|
+      B     C
+       \   /|
+        \ / |
+         A  |
+          \ |
+           \|
             D
 ```
 
@@ -45,8 +48,8 @@ C.adj: [A, D]
 D.adj: [A, c]
 ```
 
-Later, it discusses checking the reachability of all vertices and finding connected
-components in a graph, both with a time complexity of $O(|V|+|E|)$.
+Later, it discusses checking the reachability of all vertices and finding **connected
+components** in a graph, both with a time complexity of $O(|V|+|E|)$.
 
 Finally, adding preorder and postorder attributes to vertices can track the execution of
 a DFS. One important feature of this is that for any vertices, u and v, the intervals
@@ -54,9 +57,22 @@ a DFS. One important feature of this is that for any vertices, u and v, the inte
 
 ### Week 2: Decomposition of Graphs 2
 
+It introduces directed graphs, specifically **Directed Acyclic Graphs (DAGs)**, known
+for their cycle-free nature. It also introduces **Strongly Connected Components
+(SCCs)**. It's noteworthy that the metagraph of any graph $G$ is inherently a DAG. It
+subsequently details the process of identifying SCCs within a graph $G$, which begins
+with the reversal of the graph $G^R$.
+
 ### Week 3: Paths in Graphs 1
 
+It introduces **Breadth-First Search (BFS)** for finding minimum distances between any
+two vertices, constructing the shortest path between them, with a runtime of
+$O(|E| + |V|)$
+
 ### Week 4: Paths in Graphs 2
+
+Until this week, graphs were introduced without edge weights. Starting this week and
+continuing onward, graphs will be introduced with weighted edges.
 
 ### Week 5: Minimum Spanning Trees
 
