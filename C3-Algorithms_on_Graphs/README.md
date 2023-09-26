@@ -2,9 +2,9 @@
 
 ## Description
 
-This section provides a brief overview of the course content for each week. The notation
-used here designates $G$ as a graph, $V$ as the set of all vertices and $E$ as the set
-of all edges.
+This section offers a concise overview of the course content for each week, using the
+following notation: $G$ represents a graph, $V$ denotes the set of all vertices, and $E$
+signifies the set of all edges.
 
 ### Week 1: Decomposition of Graphs 1
 
@@ -72,9 +72,24 @@ $O(|E| + |V|)$.
 ### Week 4: Paths in Graphs 2
 
 Until this week, graphs were introduced without edge weights. Starting this week and
-continuing onward, graphs will be introduced with weighted edges.
+going forward, graphs will be introduced with weighted edges. When all weighted edges
+are non-negative, Dijkstra's algorithm can efficiently find the shortest path between
+two nodes. The computational complexity for this algorithm is $O(|V|^2)$ with an
+array-based implementation of priority queue and $O((|V| + |E|) \log(|V|))$ with a
+binary heap implementation of priority queue.
+
+On the other hand, if a graph G contains negative weighted edges, the Bellman-Ford
+algorithm can be employed to find the shortest path with a computational complexity of
+$O(|V||E|)$. Additionally, by making a slight modification to the Bellman-Ford
+algorithm, it can also detect the presence of negative weighted cycles.
 
 ### Week 5: Minimum Spanning Trees
+
+Imagine you are a CEO of an airline company looking to build a global flight network
+connecting 50 major cities while minimizing travel time, the most cost-effective
+approach would be to use a Minimum Spanning Tree (MST) algorithm like Kruskal's or
+Prim's. Both of these algorithms have a running cost of $O(|E| \log(|V|))$, which is
+efficient and can help you establish the most efficient routes between these cities.
 
 ### Week 6: Advanced Shortest Paths Algorithms
 

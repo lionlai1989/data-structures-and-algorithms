@@ -29,6 +29,13 @@ strengths and weaknesses and when to employ each of them.
 
 ### [Algorithms on Graphs](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C3-Algorithms_on_Graphs):
 
+Graph theory is a mathematical discipline focusing on the study of graphs—structures
+comprised of vertices connected by edges. Its significance extends to diverse fields,
+like computer science, cryptography, logistics, transportation, urban planning, and
+economics. This course provides an introduction to fundamental graph theory concepts,
+including identifying strongly connected components, finding shortest paths, and
+determining minimum spanning trees.
+
 ### [Algorithms on Strings](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C4-Algorithms_on_Strings):
 
 ## Getting Started
