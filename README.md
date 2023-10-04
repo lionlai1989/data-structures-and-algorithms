@@ -21,20 +21,22 @@ undirected graph.
 
 ### [Data Structures](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C2-Data_Structures):
 
-To maximize the potential of good algorithms, it's essential to have efficient data
-structures for data manipulation. In this course, I dive into various data structures,
-including arrays, linked lists, stacks, queues, priority queues, disjoint-sets, hash
-tables, and binary search trees, gaining a comprehensive understanding of their
-strengths and weaknesses and when to employ each of them.
+The second course, Data Structures, is the **cornerstone** of this specialization. To
+harness the full potential of effective algorithms, efficient data structures for data
+manipulation are indispensable. Among these, arrays and singly/doubly linked lists
+represent two _concrete_ data structures. At the same time, there are many _abstract_
+data structures such as stacks, queues, priority queues, disjoint sets, hash tables, and
+binary trees. This course dives into the comprehensive theory and implementation of both
+_concrete_ and _abstract_ data structures, offering insights into their strengths and
+weaknesses and guidance on when to deploy them in various contexts.
 
 ### [Algorithms on Graphs](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C3-Algorithms_on_Graphs):
 
-Graph theory is a mathematical discipline focusing on the study of graphs—structures
-comprised of vertices connected by edges. Its significance extends to diverse fields,
-like computer science, cryptography, logistics, transportation, urban planning, and
-economics. This course provides an introduction to fundamental graph theory concepts,
-including identifying strongly connected components, finding shortest paths, and
-determining minimum spanning trees.
+_Graph theory_ is a mathematical discipline that studies graph structures comprised of
+vertices connected by edges. Its significance extends to diverse fields, like computer
+science, cryptography, logistics, transportation, urban planning, and economics. This
+course introduces fundamental graph theory concepts, including identifying strongly
+connected components, finding shortest paths, and determining minimum spanning trees.
 
 ### [Algorithms on Strings](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C4-Algorithms_on_Strings):
 

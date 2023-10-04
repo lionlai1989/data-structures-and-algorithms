@@ -1,9 +1,5 @@
 # Data Structures
 
-This course is the **cornerstone** of the specialization, providing essential
-foundational knowledge required to grasp more advanced algorithms such as trees, graph
-theory, pattern searching, etc.
-
 ## Description
 
 This section provides a brief overview of the course content for each week.
