@@ -1,3 +1,6 @@
+# python3
+
+
 def gcd(a, b):
     # Naive solution:
     current_gcd = 1
@@ -7,14 +10,15 @@ def gcd(a, b):
                 current_gcd = d
     return current_gcd
 
-def gcd_faster(a, b):
+
+def gcd_fast(a, b):
     # Faster solution:
     if b == 0:
         return a
     else:
-        return gcd_faster(b, a % b)
+        return gcd_fast(b, a % b)
 
 
 if __name__ == "__main__":
     a, b = map(int, input().split())
-    print(gcd_faster(a, b))
+    print(gcd_fast(a, b))
