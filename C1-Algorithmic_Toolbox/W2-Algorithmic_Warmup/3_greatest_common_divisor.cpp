@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> // cin, cout
 
 using namespace std;
 
@@ -22,10 +22,11 @@ int gcd_fast(int a, int b) {
     }
 }
 
-// g++ -pipe -O2 -std=c++14 gcd.cpp -lm && ./a.out
+// g++ 3_greatest_common_divisor.cpp -std=c++17 -Wall && ./a.out < 3_greatest_common_divisor.txt
 int main() {
     int a, b;
-    cin >> a >> b;
-    cout << gcd_fast(a, b) << endl;
+    while (cin >> a >> b) {
+        cout << gcd_fast(a, b) << endl;
+    }
     return 0;
 }
