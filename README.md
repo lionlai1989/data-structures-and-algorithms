@@ -11,15 +11,15 @@ divided into six series courses:
 
 ### [Algorithmic Toolbox](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C1-Algorithmic_Toolbox):
 
-The initial course covers algorithmic strategies, including greedy algorithms,
-divide-and-conquer algorithms, and dynamic programming. These three techniques are
-better described as strategic approaches rather than specific algorithms. The principles
-underlying these strategies are readily observable in more specialized algorithms. For
-instance, merge sort exemplifies the divide-and-conquer algorithm, and dynamic
-programming can be applied to solve problems like finding the shortest path in an
-undirected graph.
+- Greedy Algorithm
+- Divide and Conquer
+- Dynamic Programming
 
 ### [Data Structures](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C2-Data_Structures):
+<!-- 
+- Concrete data structures: arrays and linked lists
+- Abstract data structures: stacks, queues, priority queues, disjoint sets, hash
+  tables, and binary trees.
 
 The second course, Data Structures, is the **cornerstone** of this specialization. To
 harness the full potential of effective algorithms, efficient data structures for data
@@ -28,27 +28,27 @@ represent two _concrete_ data structures. At the same time, there are many _abst
 data structures such as stacks, queues, priority queues, disjoint sets, hash tables, and
 binary trees. This course dives into the comprehensive theory and implementation of both
 _concrete_ and _abstract_ data structures, offering insights into their strengths and
-weaknesses and guidance on when to deploy them in various contexts.
+weaknesses and guidance on when to deploy them in various contexts. -->
 
 ### [Algorithms on Graphs](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C3-Algorithms_on_Graphs):
+<!-- 
+- strongly connected components
+- shortest paths
+- minimum spanning trees
 
 _Graph theory_ is a mathematical discipline that studies graph structures comprised of
 vertices connected by edges. Its significance extends to diverse fields, like computer
 science, cryptography, logistics, transportation, urban planning, and economics. This
 course introduces fundamental graph theory concepts, including identifying strongly
-connected components, finding shortest paths, and determining minimum spanning trees.
+connected components, finding shortest paths, and determining minimum spanning trees. -->
 
 ### [Algorithms on Strings](https://github.com/lionlai1989/data-structures-and-algorithms/tree/master/C4-Algorithms_on_Strings):
 
 ## Getting Started
 
 In this repository, all data structures and algorithms are developed from scratch. There
-is no requirement to install any additional dependencies; all you need is a **Python3**
-or **C++** compiler installed on your system.
-
-## Help
-
-Any feedback, comments, and questions are welcome.
+is no requirement to install any additional dependencies; all you need is a
+**C++** compiler installed on your system. 
 
 ## Authors
 
@@ -57,14 +57,9 @@ Any feedback, comments, and questions are welcome.
 ## Version History
 
 -   2.0.0
-    -   Continue this course in 2023 and aim to understand EVERYTHING.
+    -   Continue this course in 2023, but fail on **string**.
 -   1.0.0
     -   Finish first three courses in 2016, but didn't continue till the end.
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for
-details
 
 ## Acknowledgments
 
