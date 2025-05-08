@@ -3,21 +3,6 @@
 
 using namespace std;
 
-long long fibonacci_huge_naive(long long n, long long m) {
-    if (n <= 1)
-        return n;
-
-    long long f0 = 0;
-    long long f1 = 1;
-
-    for (long long i = 2; i <= n; ++i) {
-        long long tmp = f1;
-        f1 = f0 + f1;
-        f0 = tmp;
-    }
-    return f1 % m;
-}
-
 int pisano_period(int n) {
     /**
      * The Pisano period is defined as the length of the repeating cycle in the
@@ -42,31 +27,38 @@ int pisano_period(int n) {
     assert(false);
 }
 
-long long fibonacci_huge_fast(long long n, int m) {
-    int period = pisano_period(m);
-    int remainder = n % period;
-    if (remainder == 0 || remainder == 1) {
+int fibonacci_sum_last_digit(long long n) {
+    if (n <= 1)
+        return n;
+
+    // Use mod 10 to get last digit
+    int period = pisano_period(10);
+    assert(period == 60);
+
+    // f(0) + f(1) + f(2) + ... + f(n) = f(n+2) - 1
+    int remainder = (n + 2) % period;
+    if (remainder <= 1) {
         return remainder;
     }
 
     int f0 = 0;
     int f1 = 1;
-    // Calculate f(remainder)
-    for (int i = 2; i <= remainder; ++i) {
-        int tmp = f1;
-        f1 = (f0 + f1) % m;
-        f0 = tmp;
+    for (long long i = 2; i <= remainder; ++i) {
+        int tmp = f0;
+        f0 = f1;
+        f1 = (tmp + f1) % 10;
     }
-    return f1 % m;
+
+    // f1 is the current target
+    // To avoid negative result
+    return (f1 + 10 - 1) % 10;
 }
 
-// g++ 5_fibonacci_huge.cpp -std=c++17 -Wall && ./a.out < 5_fibonacci_huge.txt
+// g++ 4_fibonacci_sum_last_digit.cpp -std=c++17 -Wall && ./a.out < 4_fibonacci_sum_last_digit.txt
 int main() {
-    long long n;
-    int m;
-    while (cin >> n >> m) {
-        cout << fibonacci_huge_naive(n, m) << '\n';
-        assert(fibonacci_huge_fast(n, m) == fibonacci_huge_naive(n, m));
+    long long n = 0;
+    while (cin >> n) {
+        cout << fibonacci_sum_last_digit(n) << endl;
     }
     return 0;
 }
