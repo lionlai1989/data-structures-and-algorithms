@@ -8,8 +8,8 @@ int binary_search(const vector<int> &a, int x) {
     int left = 0;
     int right = a.size() - 1;
 
-    // use "<" or "<="?
-    while (left < right) {
+    // use "<" or "<="? "<=" can search every elements.
+    while (left <= right) {
         // The infamous integer-overflow bug undetected for 20 years in C++.
         int mid = left + (right - left) / 2;
 
