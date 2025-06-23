@@ -6,20 +6,19 @@ using namespace std;
 struct Vertex {
     int key;
     vector<int> adj_keys;
-    int previsit;
-    int postvisit;
-    int group;
+    int previsit = 0;
+    int postvisit = 0;
+    int group = 0;
 
-    Vertex(int k, const vector<int> &ak, int pre = 0, int post = 0, int g = 0)
-        : key(k), adj_keys(ak), previsit(pre), postvisit(post), group(g) {}
+    Vertex(int k, const vector<int> &adj) : key(k), adj_keys(adj) {}
 };
 
 struct Graph {
     int clock;
+    int n_group;
     vector<Vertex> vertices;
 
-    Graph(const vector<vector<int>> &adj) {
-        clock = 0;
+    Graph(const vector<vector<int>> &adj) : clock(0), n_group(0) {
         for (size_t i = 0; i < adj.size(); ++i) {
             /**
              * push_back(Vertex(...)) first constructs a temporary Vertex object, then invokes either the copy- or
@@ -37,14 +36,11 @@ struct Graph {
             vertices.emplace_back(i, adj[i]);
         }
 
-        int group = 1; // goup idx starting from 1.
-
         for (Vertex &v : vertices) {
             if (v.previsit == 0) {
-                dfs(v, group);
-
                 // Update group ID only when starting a new DFS.
-                group += 1;
+                n_group += 1;
+                dfs(v, n_group);
             }
         }
     }
@@ -69,14 +65,14 @@ struct Graph {
         previsit(v);
         v.group = group;
 
-        for (size_t nbr : v.adj_keys) {
-            dfs(vertices[nbr], group);
+        for (int nbr_key : v.adj_keys) {
+            dfs(vertices[nbr_key], group);
         }
 
         postvisit(v);
     }
 
-    bool reach(int start, int end) { return vertices[start].group == vertices[end].group; }
+    bool reach(int start, int end) const { return vertices[start].group == vertices[end].group; }
 };
 
 // g++ 1_reachability.cpp -std=c++17 -Wall && ./a.out < 1_reachability.txt
