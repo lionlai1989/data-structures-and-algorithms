@@ -10,7 +10,7 @@ struct Vertex {
     int postvisit = 0;
     int group = 0;
 
-    Vertex(int k, const vector<int> &adj) : key(k), adj_keys(adj) {}
+    Vertex(int k, const vector<int> &adj_keys) : key(k), adj_keys(adj_keys) {}
 };
 
 class Graph {
@@ -21,9 +21,9 @@ class Graph {
     bool acyclic = true; // A graph without a cycle.
 
   public:
-    Graph(const vector<vector<int>> &adj) : clock(0), n_group(0) {
-        for (size_t i = 0; i < adj.size(); ++i) {
-            vertices.emplace_back(i, adj[i]);
+    Graph(const vector<vector<int>> &adjacency_list) : clock(0), n_group(0) {
+        for (size_t i = 0; i < adjacency_list.size(); ++i) {
+            vertices.emplace_back(i, adjacency_list[i]);
         }
 
         for (Vertex &v : vertices) {
